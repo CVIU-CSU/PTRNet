@@ -1,0 +1,7 @@
+__pycache__/
+.idea/
+*.egg-info
+**/.ipynb_checkpoints/
+*.pyc
+**/.coverage*
+build/

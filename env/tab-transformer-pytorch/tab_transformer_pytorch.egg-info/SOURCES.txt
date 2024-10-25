@@ -1,0 +1,11 @@
+LICENSE
+README.md
+setup.py
+tab_transformer_pytorch/__init__.py
+tab_transformer_pytorch/ft_transformer.py
+tab_transformer_pytorch/tab_transformer_pytorch.py
+tab_transformer_pytorch.egg-info/PKG-INFO
+tab_transformer_pytorch.egg-info/SOURCES.txt
+tab_transformer_pytorch.egg-info/dependency_links.txt
+tab_transformer_pytorch.egg-info/requires.txt
+tab_transformer_pytorch.egg-info/top_level.txt

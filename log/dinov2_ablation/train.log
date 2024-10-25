@@ -1,0 +1,6482 @@
+Namespace(Adiscription='BiomedCLIP + tabtransformer', base_lr=0.0005, batch_size=1, d_model=256, gpu='0', hidden_dim=64, init_lr=1e-07, lr_way='cos', nclass=2, num_epochs=100, num_warmup=10, reembed=0, saveName='dinov2', savePath='log/dinov2', seed=3407, tab='tabtransformer', vfm='dinov2', weight_decay=0.0005)
+union_model_wo_reembed(
+  (tabular_transformer): TabTransformer(
+    (category_embed): Embedding(11, 28)
+    (norm): LayerNorm((23,), eps=1e-05, elementwise_affine=True)
+    (transformer): Transformer(
+      (layers): ModuleList(
+        (0): ModuleList(
+          (0): PreNorm(
+            (norm): LayerNorm((32,), eps=1e-05, elementwise_affine=True)
+            (fn): Attention(
+              (to_qkv): Linear(in_features=32, out_features=384, bias=False)
+              (to_out): Linear(in_features=128, out_features=32, bias=True)
+              (dropout): Dropout(p=0.1, inplace=False)
+            )
+          )
+          (1): PreNorm(
+            (norm): LayerNorm((32,), eps=1e-05, elementwise_affine=True)
+            (fn): FeedForward(
+              (net): Sequential(
+                (0): Linear(in_features=32, out_features=256, bias=True)
+                (1): GEGLU()
+                (2): Dropout(p=0.1, inplace=False)
+                (3): Linear(in_features=128, out_features=32, bias=True)
+              )
+            )
+          )
+        )
+        (1): ModuleList(
+          (0): PreNorm(
+            (norm): LayerNorm((32,), eps=1e-05, elementwise_affine=True)
+            (fn): Attention(
+              (to_qkv): Linear(in_features=32, out_features=384, bias=False)
+              (to_out): Linear(in_features=128, out_features=32, bias=True)
+              (dropout): Dropout(p=0.1, inplace=False)
+            )
+          )
+          (1): PreNorm(
+            (norm): LayerNorm((32,), eps=1e-05, elementwise_affine=True)
+            (fn): FeedForward(
+              (net): Sequential(
+                (0): Linear(in_features=32, out_features=256, bias=True)
+                (1): GEGLU()
+                (2): Dropout(p=0.1, inplace=False)
+                (3): Linear(in_features=128, out_features=32, bias=True)
+              )
+            )
+          )
+        )
+        (2): ModuleList(
+          (0): PreNorm(
+            (norm): LayerNorm((32,), eps=1e-05, elementwise_affine=True)
+            (fn): Attention(
+              (to_qkv): Linear(in_features=32, out_features=384, bias=False)
+              (to_out): Linear(in_features=128, out_features=32, bias=True)
+              (dropout): Dropout(p=0.1, inplace=False)
+            )
+          )
+          (1): PreNorm(
+            (norm): LayerNorm((32,), eps=1e-05, elementwise_affine=True)
+            (fn): FeedForward(
+              (net): Sequential(
+                (0): Linear(in_features=32, out_features=256, bias=True)
+                (1): GEGLU()
+                (2): Dropout(p=0.1, inplace=False)
+                (3): Linear(in_features=128, out_features=32, bias=True)
+              )
+            )
+          )
+        )
+        (3): ModuleList(
+          (0): PreNorm(
+            (norm): LayerNorm((32,), eps=1e-05, elementwise_affine=True)
+            (fn): Attention(
+              (to_qkv): Linear(in_features=32, out_features=384, bias=False)
+              (to_out): Linear(in_features=128, out_features=32, bias=True)
+              (dropout): Dropout(p=0.1, inplace=False)
+            )
+          )
+          (1): PreNorm(
+            (norm): LayerNorm((32,), eps=1e-05, elementwise_affine=True)
+            (fn): FeedForward(
+              (net): Sequential(
+                (0): Linear(in_features=32, out_features=256, bias=True)
+                (1): GEGLU()
+                (2): Dropout(p=0.1, inplace=False)
+                (3): Linear(in_features=128, out_features=32, bias=True)
+              )
+            )
+          )
+        )
+        (4): ModuleList(
+          (0): PreNorm(
+            (norm): LayerNorm((32,), eps=1e-05, elementwise_affine=True)
+            (fn): Attention(
+              (to_qkv): Linear(in_features=32, out_features=384, bias=False)
+              (to_out): Linear(in_features=128, out_features=32, bias=True)
+              (dropout): Dropout(p=0.1, inplace=False)
+            )
+          )
+          (1): PreNorm(
+            (norm): LayerNorm((32,), eps=1e-05, elementwise_affine=True)
+            (fn): FeedForward(
+              (net): Sequential(
+                (0): Linear(in_features=32, out_features=256, bias=True)
+                (1): GEGLU()
+                (2): Dropout(p=0.1, inplace=False)
+                (3): Linear(in_features=128, out_features=32, bias=True)
+              )
+            )
+          )
+        )
+        (5): ModuleList(
+          (0): PreNorm(
+            (norm): LayerNorm((32,), eps=1e-05, elementwise_affine=True)
+            (fn): Attention(
+              (to_qkv): Linear(in_features=32, out_features=384, bias=False)
+              (to_out): Linear(in_features=128, out_features=32, bias=True)
+              (dropout): Dropout(p=0.1, inplace=False)
+            )
+          )
+          (1): PreNorm(
+            (norm): LayerNorm((32,), eps=1e-05, elementwise_affine=True)
+            (fn): FeedForward(
+              (net): Sequential(
+                (0): Linear(in_features=32, out_features=256, bias=True)
+                (1): GEGLU()
+                (2): Dropout(p=0.1, inplace=False)
+                (3): Linear(in_features=128, out_features=32, bias=True)
+              )
+            )
+          )
+        )
+      )
+    )
+    (mlp): MLP(
+      (mlp): Sequential(
+        (0): Linear(in_features=151, out_features=604, bias=True)
+        (1): ReLU()
+        (2): Linear(in_features=604, out_features=302, bias=True)
+        (3): ReLU()
+        (4): Linear(in_features=302, out_features=256, bias=True)
+      )
+    )
+  )
+  (conv3): Sequential(
+    (0): Conv3d(768, 8, kernel_size=(4, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+    (1): MaxPool3d(kernel_size=(4, 2, 2), stride=(4, 2, 2), padding=0, dilation=1, ceil_mode=False)
+    (2): Conv3d(8, 256, kernel_size=(4, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+    (3): MaxPool3d(kernel_size=(4, 2, 2), stride=(4, 2, 2), padding=0, dilation=1, ceil_mode=False)
+  )
+  (gap): AdaptiveAvgPool3d(output_size=(1, 1, 1))
+  (classifier): Linear(in_features=512, out_features=2, bias=True)
+  (fusion): MMTM(
+    (fc_squeeze): Linear(in_features=512, out_features=1024, bias=True)
+    (fc_visual): Linear(in_features=1024, out_features=256, bias=True)
+    (fc_skeleton): Linear(in_features=1024, out_features=256, bias=True)
+    (relu): ReLU()
+    (sigmoid): Sigmoid()
+  )
+)
+Total trainable pytorch params:1.8734899999999999 MB
+Total pytorch params:1.8734899999999999 MB
+Namespace(Adiscription='BiomedCLIP + tabtransformer', base_lr=0.0005, batch_size=1, d_model=256, gpu='0', hidden_dim=64, init_lr=1e-07, lr_way='cos', nclass=2, num_epochs=100, num_warmup=10, reembed=1, saveName='dinov2', savePath='log/dinov2', seed=3407, tab='tabtransformer', vfm='dinov2', weight_decay=0.0005)
+union_model_w_reembed(
+  (tabular_transformer): TabTransformer(
+    (category_embed): Embedding(11, 28)
+    (norm): LayerNorm((23,), eps=1e-05, elementwise_affine=True)
+    (transformer): Transformer(
+      (layers): ModuleList(
+        (0): ModuleList(
+          (0): PreNorm(
+            (norm): LayerNorm((32,), eps=1e-05, elementwise_affine=True)
+            (fn): Attention(
+              (to_qkv): Linear(in_features=32, out_features=384, bias=False)
+              (to_out): Linear(in_features=128, out_features=32, bias=True)
+              (dropout): Dropout(p=0.1, inplace=False)
+            )
+          )
+          (1): PreNorm(
+            (norm): LayerNorm((32,), eps=1e-05, elementwise_affine=True)
+            (fn): FeedForward(
+              (net): Sequential(
+                (0): Linear(in_features=32, out_features=256, bias=True)
+                (1): GEGLU()
+                (2): Dropout(p=0.1, inplace=False)
+                (3): Linear(in_features=128, out_features=32, bias=True)
+              )
+            )
+          )
+        )
+        (1): ModuleList(
+          (0): PreNorm(
+            (norm): LayerNorm((32,), eps=1e-05, elementwise_affine=True)
+            (fn): Attention(
+              (to_qkv): Linear(in_features=32, out_features=384, bias=False)
+              (to_out): Linear(in_features=128, out_features=32, bias=True)
+              (dropout): Dropout(p=0.1, inplace=False)
+            )
+          )
+          (1): PreNorm(
+            (norm): LayerNorm((32,), eps=1e-05, elementwise_affine=True)
+            (fn): FeedForward(
+              (net): Sequential(
+                (0): Linear(in_features=32, out_features=256, bias=True)
+                (1): GEGLU()
+                (2): Dropout(p=0.1, inplace=False)
+                (3): Linear(in_features=128, out_features=32, bias=True)
+              )
+            )
+          )
+        )
+        (2): ModuleList(
+          (0): PreNorm(
+            (norm): LayerNorm((32,), eps=1e-05, elementwise_affine=True)
+            (fn): Attention(
+              (to_qkv): Linear(in_features=32, out_features=384, bias=False)
+              (to_out): Linear(in_features=128, out_features=32, bias=True)
+              (dropout): Dropout(p=0.1, inplace=False)
+            )
+          )
+          (1): PreNorm(
+            (norm): LayerNorm((32,), eps=1e-05, elementwise_affine=True)
+            (fn): FeedForward(
+              (net): Sequential(
+                (0): Linear(in_features=32, out_features=256, bias=True)
+                (1): GEGLU()
+                (2): Dropout(p=0.1, inplace=False)
+                (3): Linear(in_features=128, out_features=32, bias=True)
+              )
+            )
+          )
+        )
+        (3): ModuleList(
+          (0): PreNorm(
+            (norm): LayerNorm((32,), eps=1e-05, elementwise_affine=True)
+            (fn): Attention(
+              (to_qkv): Linear(in_features=32, out_features=384, bias=False)
+              (to_out): Linear(in_features=128, out_features=32, bias=True)
+              (dropout): Dropout(p=0.1, inplace=False)
+            )
+          )
+          (1): PreNorm(
+            (norm): LayerNorm((32,), eps=1e-05, elementwise_affine=True)
+            (fn): FeedForward(
+              (net): Sequential(
+                (0): Linear(in_features=32, out_features=256, bias=True)
+                (1): GEGLU()
+                (2): Dropout(p=0.1, inplace=False)
+                (3): Linear(in_features=128, out_features=32, bias=True)
+              )
+            )
+          )
+        )
+        (4): ModuleList(
+          (0): PreNorm(
+            (norm): LayerNorm((32,), eps=1e-05, elementwise_affine=True)
+            (fn): Attention(
+              (to_qkv): Linear(in_features=32, out_features=384, bias=False)
+              (to_out): Linear(in_features=128, out_features=32, bias=True)
+              (dropout): Dropout(p=0.1, inplace=False)
+            )
+          )
+          (1): PreNorm(
+            (norm): LayerNorm((32,), eps=1e-05, elementwise_affine=True)
+            (fn): FeedForward(
+              (net): Sequential(
+                (0): Linear(in_features=32, out_features=256, bias=True)
+                (1): GEGLU()
+                (2): Dropout(p=0.1, inplace=False)
+                (3): Linear(in_features=128, out_features=32, bias=True)
+              )
+            )
+          )
+        )
+        (5): ModuleList(
+          (0): PreNorm(
+            (norm): LayerNorm((32,), eps=1e-05, elementwise_affine=True)
+            (fn): Attention(
+              (to_qkv): Linear(in_features=32, out_features=384, bias=False)
+              (to_out): Linear(in_features=128, out_features=32, bias=True)
+              (dropout): Dropout(p=0.1, inplace=False)
+            )
+          )
+          (1): PreNorm(
+            (norm): LayerNorm((32,), eps=1e-05, elementwise_affine=True)
+            (fn): FeedForward(
+              (net): Sequential(
+                (0): Linear(in_features=32, out_features=256, bias=True)
+                (1): GEGLU()
+                (2): Dropout(p=0.1, inplace=False)
+                (3): Linear(in_features=128, out_features=32, bias=True)
+              )
+            )
+          )
+        )
+      )
+    )
+    (mlp): MLP(
+      (mlp): Sequential(
+        (0): Linear(in_features=151, out_features=604, bias=True)
+        (1): ReLU()
+        (2): Linear(in_features=604, out_features=302, bias=True)
+        (3): ReLU()
+        (4): Linear(in_features=302, out_features=256, bias=True)
+      )
+    )
+  )
+  (atten_pool): FCN(
+    (conv): Sequential(
+      (0): Conv2d(768, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (1): Conv2d(32, 16, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (2): Conv2d(16, 8, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (3): Conv2d(8, 1, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    )
+  )
+  (conv3): Sequential(
+    (0): Conv3d(768, 8, kernel_size=(4, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+    (1): MaxPool3d(kernel_size=(4, 2, 2), stride=(4, 2, 2), padding=0, dilation=1, ceil_mode=False)
+    (2): Conv3d(8, 256, kernel_size=(4, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+    (3): MaxPool3d(kernel_size=(4, 2, 2), stride=(4, 2, 2), padding=0, dilation=1, ceil_mode=False)
+  )
+  (gap): AdaptiveAvgPool3d(output_size=(1, 1, 1))
+  (classifier): Linear(in_features=512, out_features=2, bias=True)
+  (fusion): MMTM(
+    (fc_squeeze): Linear(in_features=512, out_features=1024, bias=True)
+    (fc_visual): Linear(in_features=1024, out_features=256, bias=True)
+    (fc_skeleton): Linear(in_features=1024, out_features=256, bias=True)
+    (relu): ReLU()
+    (sigmoid): Sigmoid()
+  )
+)
+Namespace(Adiscription='BiomedCLIP + tabtransformer', base_lr=0.0005, batch_size=1, d_model=256, gpu='0', hidden_dim=64, init_lr=1e-07, lr_way='cos', nclass=2, num_epochs=100, num_warmup=10, reembed=0, saveName='dinov2', savePath='log/dinov2', seed=3407, tab='tabtransformer', vfm='dinov2', weight_decay=0.0005)
+union_model_wo_reembed(
+  (tabular_transformer): TabTransformer(
+    (category_embed): Embedding(11, 28)
+    (norm): LayerNorm((23,), eps=1e-05, elementwise_affine=True)
+    (transformer): Transformer(
+      (layers): ModuleList(
+        (0): ModuleList(
+          (0): PreNorm(
+            (norm): LayerNorm((32,), eps=1e-05, elementwise_affine=True)
+            (fn): Attention(
+              (to_qkv): Linear(in_features=32, out_features=384, bias=False)
+              (to_out): Linear(in_features=128, out_features=32, bias=True)
+              (dropout): Dropout(p=0.1, inplace=False)
+            )
+          )
+          (1): PreNorm(
+            (norm): LayerNorm((32,), eps=1e-05, elementwise_affine=True)
+            (fn): FeedForward(
+              (net): Sequential(
+                (0): Linear(in_features=32, out_features=256, bias=True)
+                (1): GEGLU()
+                (2): Dropout(p=0.1, inplace=False)
+                (3): Linear(in_features=128, out_features=32, bias=True)
+              )
+            )
+          )
+        )
+        (1): ModuleList(
+          (0): PreNorm(
+            (norm): LayerNorm((32,), eps=1e-05, elementwise_affine=True)
+            (fn): Attention(
+              (to_qkv): Linear(in_features=32, out_features=384, bias=False)
+              (to_out): Linear(in_features=128, out_features=32, bias=True)
+              (dropout): Dropout(p=0.1, inplace=False)
+            )
+          )
+          (1): PreNorm(
+            (norm): LayerNorm((32,), eps=1e-05, elementwise_affine=True)
+            (fn): FeedForward(
+              (net): Sequential(
+                (0): Linear(in_features=32, out_features=256, bias=True)
+                (1): GEGLU()
+                (2): Dropout(p=0.1, inplace=False)
+                (3): Linear(in_features=128, out_features=32, bias=True)
+              )
+            )
+          )
+        )
+        (2): ModuleList(
+          (0): PreNorm(
+            (norm): LayerNorm((32,), eps=1e-05, elementwise_affine=True)
+            (fn): Attention(
+              (to_qkv): Linear(in_features=32, out_features=384, bias=False)
+              (to_out): Linear(in_features=128, out_features=32, bias=True)
+              (dropout): Dropout(p=0.1, inplace=False)
+            )
+          )
+          (1): PreNorm(
+            (norm): LayerNorm((32,), eps=1e-05, elementwise_affine=True)
+            (fn): FeedForward(
+              (net): Sequential(
+                (0): Linear(in_features=32, out_features=256, bias=True)
+                (1): GEGLU()
+                (2): Dropout(p=0.1, inplace=False)
+                (3): Linear(in_features=128, out_features=32, bias=True)
+              )
+            )
+          )
+        )
+        (3): ModuleList(
+          (0): PreNorm(
+            (norm): LayerNorm((32,), eps=1e-05, elementwise_affine=True)
+            (fn): Attention(
+              (to_qkv): Linear(in_features=32, out_features=384, bias=False)
+              (to_out): Linear(in_features=128, out_features=32, bias=True)
+              (dropout): Dropout(p=0.1, inplace=False)
+            )
+          )
+          (1): PreNorm(
+            (norm): LayerNorm((32,), eps=1e-05, elementwise_affine=True)
+            (fn): FeedForward(
+              (net): Sequential(
+                (0): Linear(in_features=32, out_features=256, bias=True)
+                (1): GEGLU()
+                (2): Dropout(p=0.1, inplace=False)
+                (3): Linear(in_features=128, out_features=32, bias=True)
+              )
+            )
+          )
+        )
+        (4): ModuleList(
+          (0): PreNorm(
+            (norm): LayerNorm((32,), eps=1e-05, elementwise_affine=True)
+            (fn): Attention(
+              (to_qkv): Linear(in_features=32, out_features=384, bias=False)
+              (to_out): Linear(in_features=128, out_features=32, bias=True)
+              (dropout): Dropout(p=0.1, inplace=False)
+            )
+          )
+          (1): PreNorm(
+            (norm): LayerNorm((32,), eps=1e-05, elementwise_affine=True)
+            (fn): FeedForward(
+              (net): Sequential(
+                (0): Linear(in_features=32, out_features=256, bias=True)
+                (1): GEGLU()
+                (2): Dropout(p=0.1, inplace=False)
+                (3): Linear(in_features=128, out_features=32, bias=True)
+              )
+            )
+          )
+        )
+        (5): ModuleList(
+          (0): PreNorm(
+            (norm): LayerNorm((32,), eps=1e-05, elementwise_affine=True)
+            (fn): Attention(
+              (to_qkv): Linear(in_features=32, out_features=384, bias=False)
+              (to_out): Linear(in_features=128, out_features=32, bias=True)
+              (dropout): Dropout(p=0.1, inplace=False)
+            )
+          )
+          (1): PreNorm(
+            (norm): LayerNorm((32,), eps=1e-05, elementwise_affine=True)
+            (fn): FeedForward(
+              (net): Sequential(
+                (0): Linear(in_features=32, out_features=256, bias=True)
+                (1): GEGLU()
+                (2): Dropout(p=0.1, inplace=False)
+                (3): Linear(in_features=128, out_features=32, bias=True)
+              )
+            )
+          )
+        )
+      )
+    )
+    (mlp): MLP(
+      (mlp): Sequential(
+        (0): Linear(in_features=151, out_features=604, bias=True)
+        (1): ReLU()
+        (2): Linear(in_features=604, out_features=302, bias=True)
+        (3): ReLU()
+        (4): Linear(in_features=302, out_features=256, bias=True)
+      )
+    )
+  )
+  (conv3): Sequential(
+    (0): Conv3d(768, 8, kernel_size=(4, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+    (1): MaxPool3d(kernel_size=(4, 2, 2), stride=(4, 2, 2), padding=0, dilation=1, ceil_mode=False)
+    (2): Conv3d(8, 256, kernel_size=(4, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+    (3): MaxPool3d(kernel_size=(4, 2, 2), stride=(4, 2, 2), padding=0, dilation=1, ceil_mode=False)
+  )
+  (gap): AdaptiveAvgPool3d(output_size=(1, 1, 1))
+  (classifier): Linear(in_features=512, out_features=2, bias=True)
+  (fusion): MMTM(
+    (fc_squeeze): Linear(in_features=512, out_features=1024, bias=True)
+    (fc_visual): Linear(in_features=1024, out_features=256, bias=True)
+    (fc_skeleton): Linear(in_features=1024, out_features=256, bias=True)
+    (relu): ReLU()
+    (sigmoid): Sigmoid()
+  )
+)
+Total trainable pytorch params:1.8734899999999999 MB
+Total pytorch params:1.8734899999999999 MB
+----------
+Train Epoch 0/99
+Accuracy of the network on the  test images: 41.860 %
+
+
+[[24 29]
+ [21 12]]
+
+
+SEN 36.36, SPE 45.28, ACC 41.86, F1 32.43, AUC 0.4443
+
+Accuracy of the network on the  test images: 36.842 %
+
+
+[[ 9 14]
+ [10  5]]
+
+
+SEN 33.33, SPE 39.13, ACC 36.84, F1 29.41, AUC 0.3246
+
+Accuracy of the network on the  test images: 48.148 %
+
+
+[[11  9]
+ [ 5  2]]
+
+
+SEN 28.57, SPE 55.00, ACC 48.15, F1 22.22, AUC 0.4071
+
+----------
+Train Epoch 1/99
+Accuracy of the network on the  test images: 41.860 %
+
+
+[[24 29]
+ [21 12]]
+
+
+SEN 36.36, SPE 45.28, ACC 41.86, F1 32.43, AUC 0.4443
+
+Accuracy of the network on the  test images: 36.842 %
+
+
+[[ 9 14]
+ [10  5]]
+
+
+SEN 33.33, SPE 39.13, ACC 36.84, F1 29.41, AUC 0.3246
+
+Accuracy of the network on the  test images: 48.148 %
+
+
+[[11  9]
+ [ 5  2]]
+
+
+SEN 28.57, SPE 55.00, ACC 48.15, F1 22.22, AUC 0.4071
+
+----------
+Train Epoch 2/99
+Accuracy of the network on the  test images: 41.860 %
+
+
+[[24 29]
+ [21 12]]
+
+
+SEN 36.36, SPE 45.28, ACC 41.86, F1 32.43, AUC 0.4443
+
+Accuracy of the network on the  test images: 36.842 %
+
+
+[[ 9 14]
+ [10  5]]
+
+
+SEN 33.33, SPE 39.13, ACC 36.84, F1 29.41, AUC 0.3246
+
+Accuracy of the network on the  test images: 48.148 %
+
+
+[[11  9]
+ [ 5  2]]
+
+
+SEN 28.57, SPE 55.00, ACC 48.15, F1 22.22, AUC 0.4071
+
+----------
+Train Epoch 3/99
+Accuracy of the network on the  test images: 41.860 %
+
+
+[[24 29]
+ [21 12]]
+
+
+SEN 36.36, SPE 45.28, ACC 41.86, F1 32.43, AUC 0.4443
+
+Accuracy of the network on the  test images: 36.842 %
+
+
+[[ 9 14]
+ [10  5]]
+
+
+SEN 33.33, SPE 39.13, ACC 36.84, F1 29.41, AUC 0.3246
+
+Accuracy of the network on the  test images: 48.148 %
+
+
+[[11  9]
+ [ 5  2]]
+
+
+SEN 28.57, SPE 55.00, ACC 48.15, F1 22.22, AUC 0.4071
+
+----------
+Train Epoch 4/99
+Accuracy of the network on the  test images: 41.860 %
+
+
+[[24 29]
+ [21 12]]
+
+
+SEN 36.36, SPE 45.28, ACC 41.86, F1 32.43, AUC 0.4443
+
+Accuracy of the network on the  test images: 36.842 %
+
+
+[[ 9 14]
+ [10  5]]
+
+
+SEN 33.33, SPE 39.13, ACC 36.84, F1 29.41, AUC 0.3246
+
+Accuracy of the network on the  test images: 48.148 %
+
+
+[[11  9]
+ [ 5  2]]
+
+
+SEN 28.57, SPE 55.00, ACC 48.15, F1 22.22, AUC 0.4071
+
+----------
+Train Epoch 5/99
+Accuracy of the network on the  test images: 41.860 %
+
+
+[[24 29]
+ [21 12]]
+
+
+SEN 36.36, SPE 45.28, ACC 41.86, F1 32.43, AUC 0.4443
+
+Accuracy of the network on the  test images: 36.842 %
+
+
+[[ 9 14]
+ [10  5]]
+
+
+SEN 33.33, SPE 39.13, ACC 36.84, F1 29.41, AUC 0.3246
+
+Accuracy of the network on the  test images: 48.148 %
+
+
+[[11  9]
+ [ 5  2]]
+
+
+SEN 28.57, SPE 55.00, ACC 48.15, F1 22.22, AUC 0.4071
+
+----------
+Train Epoch 6/99
+Accuracy of the network on the  test images: 41.860 %
+
+
+[[24 29]
+ [21 12]]
+
+
+SEN 36.36, SPE 45.28, ACC 41.86, F1 32.43, AUC 0.4443
+
+Accuracy of the network on the  test images: 36.842 %
+
+
+[[ 9 14]
+ [10  5]]
+
+
+SEN 33.33, SPE 39.13, ACC 36.84, F1 29.41, AUC 0.3246
+
+Accuracy of the network on the  test images: 48.148 %
+
+
+[[11  9]
+ [ 5  2]]
+
+
+SEN 28.57, SPE 55.00, ACC 48.15, F1 22.22, AUC 0.4071
+
+----------
+Train Epoch 7/99
+Accuracy of the network on the  test images: 41.860 %
+
+
+[[24 29]
+ [21 12]]
+
+
+SEN 36.36, SPE 45.28, ACC 41.86, F1 32.43, AUC 0.4443
+
+Accuracy of the network on the  test images: 36.842 %
+
+
+[[ 9 14]
+ [10  5]]
+
+
+SEN 33.33, SPE 39.13, ACC 36.84, F1 29.41, AUC 0.3246
+
+Accuracy of the network on the  test images: 48.148 %
+
+
+[[11  9]
+ [ 5  2]]
+
+
+SEN 28.57, SPE 55.00, ACC 48.15, F1 22.22, AUC 0.4071
+
+----------
+Train Epoch 8/99
+Accuracy of the network on the  test images: 41.860 %
+
+
+[[24 29]
+ [21 12]]
+
+
+SEN 36.36, SPE 45.28, ACC 41.86, F1 32.43, AUC 0.4443
+
+Accuracy of the network on the  test images: 36.842 %
+
+
+[[ 9 14]
+ [10  5]]
+
+
+SEN 33.33, SPE 39.13, ACC 36.84, F1 29.41, AUC 0.3246
+
+Accuracy of the network on the  test images: 48.148 %
+
+
+[[11  9]
+ [ 5  2]]
+
+
+SEN 28.57, SPE 55.00, ACC 48.15, F1 22.22, AUC 0.4071
+
+----------
+Train Epoch 9/99
+Accuracy of the network on the  test images: 41.860 %
+
+
+[[24 29]
+ [21 12]]
+
+
+SEN 36.36, SPE 45.28, ACC 41.86, F1 32.43, AUC 0.4443
+
+Accuracy of the network on the  test images: 36.842 %
+
+
+[[ 9 14]
+ [10  5]]
+
+
+SEN 33.33, SPE 39.13, ACC 36.84, F1 29.41, AUC 0.3246
+
+Accuracy of the network on the  test images: 48.148 %
+
+
+[[11  9]
+ [ 5  2]]
+
+
+SEN 28.57, SPE 55.00, ACC 48.15, F1 22.22, AUC 0.4071
+
+----------
+Train Epoch 10/99
+Accuracy of the network on the  test images: 41.860 %
+
+
+[[24 29]
+ [21 12]]
+
+
+SEN 36.36, SPE 45.28, ACC 41.86, F1 32.43, AUC 0.4443
+
+Accuracy of the network on the  test images: 36.842 %
+
+
+[[ 9 14]
+ [10  5]]
+
+
+SEN 33.33, SPE 39.13, ACC 36.84, F1 29.41, AUC 0.3246
+
+Accuracy of the network on the  test images: 48.148 %
+
+
+[[11  9]
+ [ 5  2]]
+
+
+SEN 28.57, SPE 55.00, ACC 48.15, F1 22.22, AUC 0.4071
+
+----------
+Train Epoch 11/99
+Accuracy of the network on the  test images: 41.860 %
+
+
+[[24 29]
+ [21 12]]
+
+
+SEN 36.36, SPE 45.28, ACC 41.86, F1 32.43, AUC 0.4443
+
+Accuracy of the network on the  test images: 36.842 %
+
+
+[[ 9 14]
+ [10  5]]
+
+
+SEN 33.33, SPE 39.13, ACC 36.84, F1 29.41, AUC 0.3246
+
+Accuracy of the network on the  test images: 48.148 %
+
+
+[[11  9]
+ [ 5  2]]
+
+
+SEN 28.57, SPE 55.00, ACC 48.15, F1 22.22, AUC 0.4071
+
+----------
+Train Epoch 12/99
+Accuracy of the network on the  test images: 41.860 %
+
+
+[[24 29]
+ [21 12]]
+
+
+SEN 36.36, SPE 45.28, ACC 41.86, F1 32.43, AUC 0.4443
+
+Accuracy of the network on the  test images: 36.842 %
+
+
+[[ 9 14]
+ [10  5]]
+
+
+SEN 33.33, SPE 39.13, ACC 36.84, F1 29.41, AUC 0.3246
+
+Accuracy of the network on the  test images: 48.148 %
+
+
+[[11  9]
+ [ 5  2]]
+
+
+SEN 28.57, SPE 55.00, ACC 48.15, F1 22.22, AUC 0.4071
+
+----------
+Train Epoch 13/99
+Accuracy of the network on the  test images: 41.860 %
+
+
+[[24 29]
+ [21 12]]
+
+
+SEN 36.36, SPE 45.28, ACC 41.86, F1 32.43, AUC 0.4443
+
+Accuracy of the network on the  test images: 36.842 %
+
+
+[[ 9 14]
+ [10  5]]
+
+
+SEN 33.33, SPE 39.13, ACC 36.84, F1 29.41, AUC 0.3246
+
+Accuracy of the network on the  test images: 48.148 %
+
+
+[[11  9]
+ [ 5  2]]
+
+
+SEN 28.57, SPE 55.00, ACC 48.15, F1 22.22, AUC 0.4071
+
+----------
+Train Epoch 14/99
+Accuracy of the network on the  test images: 41.860 %
+
+
+[[24 29]
+ [21 12]]
+
+
+SEN 36.36, SPE 45.28, ACC 41.86, F1 32.43, AUC 0.4443
+
+Accuracy of the network on the  test images: 36.842 %
+
+
+[[ 9 14]
+ [10  5]]
+
+
+SEN 33.33, SPE 39.13, ACC 36.84, F1 29.41, AUC 0.3246
+
+Accuracy of the network on the  test images: 48.148 %
+
+
+[[11  9]
+ [ 5  2]]
+
+
+SEN 28.57, SPE 55.00, ACC 48.15, F1 22.22, AUC 0.4071
+
+----------
+Train Epoch 15/99
+Accuracy of the network on the  test images: 41.860 %
+
+
+[[24 29]
+ [21 12]]
+
+
+SEN 36.36, SPE 45.28, ACC 41.86, F1 32.43, AUC 0.4443
+
+Accuracy of the network on the  test images: 36.842 %
+
+
+[[ 9 14]
+ [10  5]]
+
+
+SEN 33.33, SPE 39.13, ACC 36.84, F1 29.41, AUC 0.3246
+
+Accuracy of the network on the  test images: 48.148 %
+
+
+[[11  9]
+ [ 5  2]]
+
+
+SEN 28.57, SPE 55.00, ACC 48.15, F1 22.22, AUC 0.4071
+
+----------
+Train Epoch 16/99
+Accuracy of the network on the  test images: 41.860 %
+
+
+[[24 29]
+ [21 12]]
+
+
+SEN 36.36, SPE 45.28, ACC 41.86, F1 32.43, AUC 0.4443
+
+Accuracy of the network on the  test images: 36.842 %
+
+
+[[ 9 14]
+ [10  5]]
+
+
+SEN 33.33, SPE 39.13, ACC 36.84, F1 29.41, AUC 0.3246
+
+Accuracy of the network on the  test images: 48.148 %
+
+
+[[11  9]
+ [ 5  2]]
+
+
+SEN 28.57, SPE 55.00, ACC 48.15, F1 22.22, AUC 0.4071
+
+----------
+Train Epoch 17/99
+Accuracy of the network on the  test images: 41.860 %
+
+
+[[24 29]
+ [21 12]]
+
+
+SEN 36.36, SPE 45.28, ACC 41.86, F1 32.43, AUC 0.4443
+
+Accuracy of the network on the  test images: 36.842 %
+
+
+[[ 9 14]
+ [10  5]]
+
+
+SEN 33.33, SPE 39.13, ACC 36.84, F1 29.41, AUC 0.3246
+
+Accuracy of the network on the  test images: 48.148 %
+
+
+[[11  9]
+ [ 5  2]]
+
+
+SEN 28.57, SPE 55.00, ACC 48.15, F1 22.22, AUC 0.4071
+
+----------
+Train Epoch 18/99
+Accuracy of the network on the  test images: 41.860 %
+
+
+[[24 29]
+ [21 12]]
+
+
+SEN 36.36, SPE 45.28, ACC 41.86, F1 32.43, AUC 0.4443
+
+Accuracy of the network on the  test images: 36.842 %
+
+
+[[ 9 14]
+ [10  5]]
+
+
+SEN 33.33, SPE 39.13, ACC 36.84, F1 29.41, AUC 0.3246
+
+Accuracy of the network on the  test images: 48.148 %
+
+
+[[11  9]
+ [ 5  2]]
+
+
+SEN 28.57, SPE 55.00, ACC 48.15, F1 22.22, AUC 0.4071
+
+----------
+Train Epoch 19/99
+Accuracy of the network on the  test images: 41.860 %
+
+
+[[24 29]
+ [21 12]]
+
+
+SEN 36.36, SPE 45.28, ACC 41.86, F1 32.43, AUC 0.4443
+
+Accuracy of the network on the  test images: 36.842 %
+
+
+[[ 9 14]
+ [10  5]]
+
+
+SEN 33.33, SPE 39.13, ACC 36.84, F1 29.41, AUC 0.3246
+
+Accuracy of the network on the  test images: 48.148 %
+
+
+[[11  9]
+ [ 5  2]]
+
+
+SEN 28.57, SPE 55.00, ACC 48.15, F1 22.22, AUC 0.4071
+
+----------
+Train Epoch 20/99
+Accuracy of the network on the  test images: 41.860 %
+
+
+[[24 29]
+ [21 12]]
+
+
+SEN 36.36, SPE 45.28, ACC 41.86, F1 32.43, AUC 0.4443
+
+Accuracy of the network on the  test images: 36.842 %
+
+
+[[ 9 14]
+ [10  5]]
+
+
+SEN 33.33, SPE 39.13, ACC 36.84, F1 29.41, AUC 0.3246
+
+Accuracy of the network on the  test images: 48.148 %
+
+
+[[11  9]
+ [ 5  2]]
+
+
+SEN 28.57, SPE 55.00, ACC 48.15, F1 22.22, AUC 0.4071
+
+----------
+Train Epoch 21/99
+Accuracy of the network on the  test images: 41.860 %
+
+
+[[24 29]
+ [21 12]]
+
+
+SEN 36.36, SPE 45.28, ACC 41.86, F1 32.43, AUC 0.4443
+
+Accuracy of the network on the  test images: 36.842 %
+
+
+[[ 9 14]
+ [10  5]]
+
+
+SEN 33.33, SPE 39.13, ACC 36.84, F1 29.41, AUC 0.3246
+
+Accuracy of the network on the  test images: 48.148 %
+
+
+[[11  9]
+ [ 5  2]]
+
+
+SEN 28.57, SPE 55.00, ACC 48.15, F1 22.22, AUC 0.4071
+
+----------
+Train Epoch 22/99
+Accuracy of the network on the  test images: 41.860 %
+
+
+[[24 29]
+ [21 12]]
+
+
+SEN 36.36, SPE 45.28, ACC 41.86, F1 32.43, AUC 0.4443
+
+Accuracy of the network on the  test images: 36.842 %
+
+
+[[ 9 14]
+ [10  5]]
+
+
+SEN 33.33, SPE 39.13, ACC 36.84, F1 29.41, AUC 0.3246
+
+Accuracy of the network on the  test images: 48.148 %
+
+
+[[11  9]
+ [ 5  2]]
+
+
+SEN 28.57, SPE 55.00, ACC 48.15, F1 22.22, AUC 0.4071
+
+----------
+Train Epoch 23/99
+Accuracy of the network on the  test images: 41.860 %
+
+
+[[24 29]
+ [21 12]]
+
+
+SEN 36.36, SPE 45.28, ACC 41.86, F1 32.43, AUC 0.4443
+
+Accuracy of the network on the  test images: 36.842 %
+
+
+[[ 9 14]
+ [10  5]]
+
+
+SEN 33.33, SPE 39.13, ACC 36.84, F1 29.41, AUC 0.3246
+
+Accuracy of the network on the  test images: 48.148 %
+
+
+[[11  9]
+ [ 5  2]]
+
+
+SEN 28.57, SPE 55.00, ACC 48.15, F1 22.22, AUC 0.4071
+
+----------
+Train Epoch 24/99
+Accuracy of the network on the  test images: 41.860 %
+
+
+[[24 29]
+ [21 12]]
+
+
+SEN 36.36, SPE 45.28, ACC 41.86, F1 32.43, AUC 0.4443
+
+Accuracy of the network on the  test images: 36.842 %
+
+
+[[ 9 14]
+ [10  5]]
+
+
+SEN 33.33, SPE 39.13, ACC 36.84, F1 29.41, AUC 0.3246
+
+Accuracy of the network on the  test images: 48.148 %
+
+
+[[11  9]
+ [ 5  2]]
+
+
+SEN 28.57, SPE 55.00, ACC 48.15, F1 22.22, AUC 0.4071
+
+----------
+Train Epoch 25/99
+Accuracy of the network on the  test images: 41.860 %
+
+
+[[24 29]
+ [21 12]]
+
+
+SEN 36.36, SPE 45.28, ACC 41.86, F1 32.43, AUC 0.4443
+
+Accuracy of the network on the  test images: 36.842 %
+
+
+[[ 9 14]
+ [10  5]]
+
+
+SEN 33.33, SPE 39.13, ACC 36.84, F1 29.41, AUC 0.3246
+
+Accuracy of the network on the  test images: 48.148 %
+
+
+[[11  9]
+ [ 5  2]]
+
+
+SEN 28.57, SPE 55.00, ACC 48.15, F1 22.22, AUC 0.4071
+
+----------
+Train Epoch 26/99
+Accuracy of the network on the  test images: 41.860 %
+
+
+[[24 29]
+ [21 12]]
+
+
+SEN 36.36, SPE 45.28, ACC 41.86, F1 32.43, AUC 0.4443
+
+Accuracy of the network on the  test images: 36.842 %
+
+
+[[ 9 14]
+ [10  5]]
+
+
+SEN 33.33, SPE 39.13, ACC 36.84, F1 29.41, AUC 0.3246
+
+Accuracy of the network on the  test images: 48.148 %
+
+
+[[11  9]
+ [ 5  2]]
+
+
+SEN 28.57, SPE 55.00, ACC 48.15, F1 22.22, AUC 0.4071
+
+----------
+Train Epoch 27/99
+Accuracy of the network on the  test images: 41.860 %
+
+
+[[24 29]
+ [21 12]]
+
+
+SEN 36.36, SPE 45.28, ACC 41.86, F1 32.43, AUC 0.4443
+
+Accuracy of the network on the  test images: 36.842 %
+
+
+[[ 9 14]
+ [10  5]]
+
+
+SEN 33.33, SPE 39.13, ACC 36.84, F1 29.41, AUC 0.3246
+
+Accuracy of the network on the  test images: 48.148 %
+
+
+[[11  9]
+ [ 5  2]]
+
+
+SEN 28.57, SPE 55.00, ACC 48.15, F1 22.22, AUC 0.4071
+
+----------
+Train Epoch 28/99
+Accuracy of the network on the  test images: 41.860 %
+
+
+[[24 29]
+ [21 12]]
+
+
+SEN 36.36, SPE 45.28, ACC 41.86, F1 32.43, AUC 0.4443
+
+Accuracy of the network on the  test images: 36.842 %
+
+
+[[ 9 14]
+ [10  5]]
+
+
+SEN 33.33, SPE 39.13, ACC 36.84, F1 29.41, AUC 0.3246
+
+Accuracy of the network on the  test images: 48.148 %
+
+
+[[11  9]
+ [ 5  2]]
+
+
+SEN 28.57, SPE 55.00, ACC 48.15, F1 22.22, AUC 0.4071
+
+----------
+Train Epoch 29/99
+Accuracy of the network on the  test images: 41.860 %
+
+
+[[24 29]
+ [21 12]]
+
+
+SEN 36.36, SPE 45.28, ACC 41.86, F1 32.43, AUC 0.4443
+
+Accuracy of the network on the  test images: 36.842 %
+
+
+[[ 9 14]
+ [10  5]]
+
+
+SEN 33.33, SPE 39.13, ACC 36.84, F1 29.41, AUC 0.3246
+
+Accuracy of the network on the  test images: 48.148 %
+
+
+[[11  9]
+ [ 5  2]]
+
+
+SEN 28.57, SPE 55.00, ACC 48.15, F1 22.22, AUC 0.4071
+
+----------
+Train Epoch 30/99
+Accuracy of the network on the  test images: 39.535 %
+
+
+[[ 1 52]
+ [ 0 33]]
+
+
+SEN 100.00, SPE 1.89, ACC 39.53, F1 55.93, AUC 0.5094
+
+Accuracy of the network on the  test images: 42.105 %
+
+
+[[ 1 22]
+ [ 0 15]]
+
+
+SEN 100.00, SPE 4.35, ACC 42.11, F1 57.69, AUC 0.5217
+
+Accuracy of the network on the  test images: 25.926 %
+
+
+[[ 0 20]
+ [ 0  7]]
+
+
+SEN 100.00, SPE 0.00, ACC 25.93, F1 41.18, AUC 0.5000
+
+----------
+Train Epoch 31/99
+Accuracy of the network on the  test images: 69.767 %
+
+
+[[32 21]
+ [ 5 28]]
+
+
+SEN 84.85, SPE 60.38, ACC 69.77, F1 68.29, AUC 0.7307
+
+Accuracy of the network on the  test images: 60.526 %
+
+
+[[13 10]
+ [ 5 10]]
+
+
+SEN 66.67, SPE 56.52, ACC 60.53, F1 57.14, AUC 0.6275
+
+Accuracy of the network on the  test images: 59.259 %
+
+
+[[14  6]
+ [ 5  2]]
+
+
+SEN 28.57, SPE 70.00, ACC 59.26, F1 26.67, AUC 0.4036
+
+----------
+Train Epoch 32/99
+Accuracy of the network on the  test images: 75.581 %
+
+
+[[38 15]
+ [ 6 27]]
+
+
+SEN 81.82, SPE 71.70, ACC 75.58, F1 72.00, AUC 0.7962
+
+Accuracy of the network on the  test images: 57.895 %
+
+
+[[16  7]
+ [ 9  6]]
+
+
+SEN 40.00, SPE 69.57, ACC 57.89, F1 42.86, AUC 0.5710
+
+Accuracy of the network on the  test images: 44.444 %
+
+
+[[10 10]
+ [ 5  2]]
+
+
+SEN 28.57, SPE 50.00, ACC 44.44, F1 21.05, AUC 0.3714
+
+----------
+Train Epoch 33/99
+Accuracy of the network on the  test images: 69.767 %
+
+
+[[50  3]
+ [23 10]]
+
+
+SEN 30.30, SPE 94.34, ACC 69.77, F1 43.48, AUC 0.6804
+
+Accuracy of the network on the  test images: 65.789 %
+
+
+[[21  2]
+ [11  4]]
+
+
+SEN 26.67, SPE 91.30, ACC 65.79, F1 38.10, AUC 0.6029
+
+Accuracy of the network on the  test images: 70.370 %
+
+
+[[17  3]
+ [ 5  2]]
+
+
+SEN 28.57, SPE 85.00, ACC 70.37, F1 33.33, AUC 0.5750
+
+----------
+Train Epoch 34/99
+Accuracy of the network on the  test images: 41.860 %
+
+
+[[ 3 50]
+ [ 0 33]]
+
+
+SEN 100.00, SPE 5.66, ACC 41.86, F1 56.90, AUC 0.5377
+
+Accuracy of the network on the  test images: 42.105 %
+
+
+[[ 1 22]
+ [ 0 15]]
+
+
+SEN 100.00, SPE 4.35, ACC 42.11, F1 57.69, AUC 0.5217
+
+Accuracy of the network on the  test images: 25.926 %
+
+
+[[ 0 20]
+ [ 0  7]]
+
+
+SEN 100.00, SPE 0.00, ACC 25.93, F1 41.18, AUC 0.5000
+
+----------
+Train Epoch 35/99
+Accuracy of the network on the  test images: 76.744 %
+
+
+[[37 16]
+ [ 4 29]]
+
+
+SEN 87.88, SPE 69.81, ACC 76.74, F1 74.36, AUC 0.8202
+
+Accuracy of the network on the  test images: 57.895 %
+
+
+[[14  9]
+ [ 7  8]]
+
+
+SEN 53.33, SPE 60.87, ACC 57.89, F1 50.00, AUC 0.5899
+
+Accuracy of the network on the  test images: 44.444 %
+
+
+[[ 9 11]
+ [ 4  3]]
+
+
+SEN 42.86, SPE 45.00, ACC 44.44, F1 28.57, AUC 0.4000
+
+----------
+Train Epoch 36/99
+Accuracy of the network on the  test images: 81.395 %
+
+
+[[41 12]
+ [ 4 29]]
+
+
+SEN 87.88, SPE 77.36, ACC 81.40, F1 78.38, AUC 0.8745
+
+Accuracy of the network on the  test images: 57.895 %
+
+
+[[14  9]
+ [ 7  8]]
+
+
+SEN 53.33, SPE 60.87, ACC 57.89, F1 50.00, AUC 0.5594
+
+Accuracy of the network on the  test images: 40.741 %
+
+
+[[ 9 11]
+ [ 5  2]]
+
+
+SEN 28.57, SPE 45.00, ACC 40.74, F1 20.00, AUC 0.4071
+
+----------
+Train Epoch 37/99
+Accuracy of the network on the  test images: 65.116 %
+
+
+[[23 30]
+ [ 0 33]]
+
+
+SEN 100.00, SPE 43.40, ACC 65.12, F1 68.75, AUC 0.7264
+
+Accuracy of the network on the  test images: 50.000 %
+
+
+[[ 7 16]
+ [ 3 12]]
+
+
+SEN 80.00, SPE 30.43, ACC 50.00, F1 55.81, AUC 0.5681
+
+Accuracy of the network on the  test images: 40.741 %
+
+
+[[ 5 15]
+ [ 1  6]]
+
+
+SEN 85.71, SPE 25.00, ACC 40.74, F1 42.86, AUC 0.5857
+
+----------
+Train Epoch 38/99
+Accuracy of the network on the  test images: 75.581 %
+
+
+[[33 20]
+ [ 1 32]]
+
+
+SEN 96.97, SPE 62.26, ACC 75.58, F1 75.29, AUC 0.8016
+
+Accuracy of the network on the  test images: 60.526 %
+
+
+[[12 11]
+ [ 4 11]]
+
+
+SEN 73.33, SPE 52.17, ACC 60.53, F1 59.46, AUC 0.6391
+
+Accuracy of the network on the  test images: 37.037 %
+
+
+[[ 8 12]
+ [ 5  2]]
+
+
+SEN 28.57, SPE 40.00, ACC 37.04, F1 19.05, AUC 0.3786
+
+----------
+Train Epoch 39/99
+Accuracy of the network on the  test images: 93.023 %
+
+
+[[50  3]
+ [ 3 30]]
+
+
+SEN 90.91, SPE 94.34, ACC 93.02, F1 90.91, AUC 0.9405
+
+Accuracy of the network on the  test images: 60.526 %
+
+
+[[16  7]
+ [ 8  7]]
+
+
+SEN 46.67, SPE 69.57, ACC 60.53, F1 48.28, AUC 0.6014
+
+Accuracy of the network on the  test images: 48.148 %
+
+
+[[11  9]
+ [ 5  2]]
+
+
+SEN 28.57, SPE 55.00, ACC 48.15, F1 22.22, AUC 0.3893
+
+----------
+Train Epoch 40/99
+Accuracy of the network on the  test images: 94.186 %
+
+
+[[51  2]
+ [ 3 30]]
+
+
+SEN 90.91, SPE 96.23, ACC 94.19, F1 92.31, AUC 0.9683
+
+Accuracy of the network on the  test images: 60.526 %
+
+
+[[16  7]
+ [ 8  7]]
+
+
+SEN 46.67, SPE 69.57, ACC 60.53, F1 48.28, AUC 0.5884
+
+Accuracy of the network on the  test images: 55.556 %
+
+
+[[13  7]
+ [ 5  2]]
+
+
+SEN 28.57, SPE 65.00, ACC 55.56, F1 25.00, AUC 0.4214
+
+----------
+Train Epoch 41/99
+Accuracy of the network on the  test images: 95.349 %
+
+
+[[53  0]
+ [ 4 29]]
+
+
+SEN 87.88, SPE 100.00, ACC 95.35, F1 93.55, AUC 0.9960
+
+Accuracy of the network on the  test images: 65.789 %
+
+
+[[19  4]
+ [ 9  6]]
+
+
+SEN 40.00, SPE 82.61, ACC 65.79, F1 48.00, AUC 0.6043
+
+Accuracy of the network on the  test images: 51.852 %
+
+
+[[12  8]
+ [ 5  2]]
+
+
+SEN 28.57, SPE 60.00, ACC 51.85, F1 23.53, AUC 0.4464
+
+----------
+Train Epoch 42/99
+Accuracy of the network on the  test images: 95.349 %
+
+
+[[53  0]
+ [ 4 29]]
+
+
+SEN 87.88, SPE 100.00, ACC 95.35, F1 93.55, AUC 0.9989
+
+Accuracy of the network on the  test images: 63.158 %
+
+
+[[20  3]
+ [11  4]]
+
+
+SEN 26.67, SPE 86.96, ACC 63.16, F1 36.36, AUC 0.6174
+
+Accuracy of the network on the  test images: 62.963 %
+
+
+[[15  5]
+ [ 5  2]]
+
+
+SEN 28.57, SPE 75.00, ACC 62.96, F1 28.57, AUC 0.4464
+
+----------
+Train Epoch 43/99
+Accuracy of the network on the  test images: 96.512 %
+
+
+[[52  1]
+ [ 2 31]]
+
+
+SEN 93.94, SPE 98.11, ACC 96.51, F1 95.38, AUC 0.9966
+
+Accuracy of the network on the  test images: 60.526 %
+
+
+[[18  5]
+ [10  5]]
+
+
+SEN 33.33, SPE 78.26, ACC 60.53, F1 40.00, AUC 0.5870
+
+Accuracy of the network on the  test images: 62.963 %
+
+
+[[15  5]
+ [ 5  2]]
+
+
+SEN 28.57, SPE 75.00, ACC 62.96, F1 28.57, AUC 0.4286
+
+----------
+Train Epoch 44/99
+Accuracy of the network on the  test images: 76.744 %
+
+
+[[33 20]
+ [ 0 33]]
+
+
+SEN 100.00, SPE 62.26, ACC 76.74, F1 76.74, AUC 0.8774
+
+Accuracy of the network on the  test images: 55.263 %
+
+
+[[11 12]
+ [ 5 10]]
+
+
+SEN 66.67, SPE 47.83, ACC 55.26, F1 54.05, AUC 0.5580
+
+Accuracy of the network on the  test images: 37.037 %
+
+
+[[ 7 13]
+ [ 4  3]]
+
+
+SEN 42.86, SPE 35.00, ACC 37.04, F1 26.09, AUC 0.4536
+
+----------
+Train Epoch 45/99
+Accuracy of the network on the  test images: 97.674 %
+
+
+[[52  1]
+ [ 1 32]]
+
+
+SEN 96.97, SPE 98.11, ACC 97.67, F1 96.97, AUC 0.9903
+
+Accuracy of the network on the  test images: 60.526 %
+
+
+[[17  6]
+ [ 9  6]]
+
+
+SEN 40.00, SPE 73.91, ACC 60.53, F1 44.44, AUC 0.5899
+
+Accuracy of the network on the  test images: 55.556 %
+
+
+[[13  7]
+ [ 5  2]]
+
+
+SEN 28.57, SPE 65.00, ACC 55.56, F1 25.00, AUC 0.4286
+
+----------
+Train Epoch 46/99
+Accuracy of the network on the  test images: 98.837 %
+
+
+[[53  0]
+ [ 1 32]]
+
+
+SEN 96.97, SPE 100.00, ACC 98.84, F1 98.46, AUC 0.9994
+
+Accuracy of the network on the  test images: 60.526 %
+
+
+[[18  5]
+ [10  5]]
+
+
+SEN 33.33, SPE 78.26, ACC 60.53, F1 40.00, AUC 0.5522
+
+Accuracy of the network on the  test images: 62.963 %
+
+
+[[15  5]
+ [ 5  2]]
+
+
+SEN 28.57, SPE 75.00, ACC 62.96, F1 28.57, AUC 0.4571
+
+----------
+Train Epoch 47/99
+Accuracy of the network on the  test images: 97.674 %
+
+
+[[53  0]
+ [ 2 31]]
+
+
+SEN 93.94, SPE 100.00, ACC 97.67, F1 96.88, AUC 1.0000
+
+Accuracy of the network on the  test images: 60.526 %
+
+
+[[21  2]
+ [13  2]]
+
+
+SEN 13.33, SPE 91.30, ACC 60.53, F1 21.05, AUC 0.5739
+
+Accuracy of the network on the  test images: 62.963 %
+
+
+[[15  5]
+ [ 5  2]]
+
+
+SEN 28.57, SPE 75.00, ACC 62.96, F1 28.57, AUC 0.4786
+
+----------
+Train Epoch 48/99
+Accuracy of the network on the  test images: 95.349 %
+
+
+[[53  0]
+ [ 4 29]]
+
+
+SEN 87.88, SPE 100.00, ACC 95.35, F1 93.55, AUC 0.9994
+
+Accuracy of the network on the  test images: 57.895 %
+
+
+[[21  2]
+ [14  1]]
+
+
+SEN 6.67, SPE 91.30, ACC 57.89, F1 11.11, AUC 0.6464
+
+Accuracy of the network on the  test images: 66.667 %
+
+
+[[16  4]
+ [ 5  2]]
+
+
+SEN 28.57, SPE 80.00, ACC 66.67, F1 30.77, AUC 0.5143
+
+----------
+Train Epoch 49/99
+Accuracy of the network on the  test images: 97.674 %
+
+
+[[51  2]
+ [ 0 33]]
+
+
+SEN 100.00, SPE 96.23, ACC 97.67, F1 97.06, AUC 0.9906
+
+Accuracy of the network on the  test images: 65.789 %
+
+
+[[19  4]
+ [ 9  6]]
+
+
+SEN 40.00, SPE 82.61, ACC 65.79, F1 48.00, AUC 0.6203
+
+Accuracy of the network on the  test images: 62.963 %
+
+
+[[14  6]
+ [ 4  3]]
+
+
+SEN 42.86, SPE 70.00, ACC 62.96, F1 37.50, AUC 0.4714
+
+----------
+Train Epoch 50/99
+Accuracy of the network on the  test images: 96.512 %
+
+
+[[53  0]
+ [ 3 30]]
+
+
+SEN 90.91, SPE 100.00, ACC 96.51, F1 95.24, AUC 0.9846
+
+Accuracy of the network on the  test images: 57.895 %
+
+
+[[18  5]
+ [11  4]]
+
+
+SEN 26.67, SPE 78.26, ACC 57.89, F1 33.33, AUC 0.5710
+
+Accuracy of the network on the  test images: 62.963 %
+
+
+[[14  6]
+ [ 4  3]]
+
+
+SEN 42.86, SPE 70.00, ACC 62.96, F1 37.50, AUC 0.5357
+
+----------
+Train Epoch 51/99
+Accuracy of the network on the  test images: 98.837 %
+
+
+[[53  0]
+ [ 1 32]]
+
+
+SEN 96.97, SPE 100.00, ACC 98.84, F1 98.46, AUC 0.9994
+
+Accuracy of the network on the  test images: 65.789 %
+
+
+[[20  3]
+ [10  5]]
+
+
+SEN 33.33, SPE 86.96, ACC 65.79, F1 43.48, AUC 0.5623
+
+Accuracy of the network on the  test images: 66.667 %
+
+
+[[15  5]
+ [ 4  3]]
+
+
+SEN 42.86, SPE 75.00, ACC 66.67, F1 40.00, AUC 0.5250
+
+----------
+Train Epoch 52/99
+Accuracy of the network on the  test images: 94.186 %
+
+
+[[53  0]
+ [ 5 28]]
+
+
+SEN 84.85, SPE 100.00, ACC 94.19, F1 91.80, AUC 1.0000
+
+Accuracy of the network on the  test images: 57.895 %
+
+
+[[20  3]
+ [13  2]]
+
+
+SEN 13.33, SPE 86.96, ACC 57.89, F1 20.00, AUC 0.6203
+
+Accuracy of the network on the  test images: 62.963 %
+
+
+[[16  4]
+ [ 6  1]]
+
+
+SEN 14.29, SPE 80.00, ACC 62.96, F1 16.67, AUC 0.5571
+
+----------
+Train Epoch 53/99
+Accuracy of the network on the  test images: 100.000 %
+
+
+[[53  0]
+ [ 0 33]]
+
+
+SEN 100.00, SPE 100.00, ACC 100.00, F1 100.00, AUC 1.0000
+
+Accuracy of the network on the  test images: 63.158 %
+
+
+[[20  3]
+ [11  4]]
+
+
+SEN 26.67, SPE 86.96, ACC 63.16, F1 36.36, AUC 0.6377
+
+Accuracy of the network on the  test images: 62.963 %
+
+
+[[15  5]
+ [ 5  2]]
+
+
+SEN 28.57, SPE 75.00, ACC 62.96, F1 28.57, AUC 0.5179
+
+----------
+Train Epoch 54/99
+Accuracy of the network on the  test images: 100.000 %
+
+
+[[53  0]
+ [ 0 33]]
+
+
+SEN 100.00, SPE 100.00, ACC 100.00, F1 100.00, AUC 1.0000
+
+Accuracy of the network on the  test images: 63.158 %
+
+
+[[20  3]
+ [11  4]]
+
+
+SEN 26.67, SPE 86.96, ACC 63.16, F1 36.36, AUC 0.6377
+
+Accuracy of the network on the  test images: 62.963 %
+
+
+[[15  5]
+ [ 5  2]]
+
+
+SEN 28.57, SPE 75.00, ACC 62.96, F1 28.57, AUC 0.5179
+
+----------
+Train Epoch 55/99
+Accuracy of the network on the  test images: 100.000 %
+
+
+[[53  0]
+ [ 0 33]]
+
+
+SEN 100.00, SPE 100.00, ACC 100.00, F1 100.00, AUC 1.0000
+
+Accuracy of the network on the  test images: 63.158 %
+
+
+[[20  3]
+ [11  4]]
+
+
+SEN 26.67, SPE 86.96, ACC 63.16, F1 36.36, AUC 0.6377
+
+Accuracy of the network on the  test images: 62.963 %
+
+
+[[15  5]
+ [ 5  2]]
+
+
+SEN 28.57, SPE 75.00, ACC 62.96, F1 28.57, AUC 0.5179
+
+----------
+Train Epoch 56/99
+Accuracy of the network on the  test images: 100.000 %
+
+
+[[53  0]
+ [ 0 33]]
+
+
+SEN 100.00, SPE 100.00, ACC 100.00, F1 100.00, AUC 1.0000
+
+Accuracy of the network on the  test images: 63.158 %
+
+
+[[20  3]
+ [11  4]]
+
+
+SEN 26.67, SPE 86.96, ACC 63.16, F1 36.36, AUC 0.6377
+
+Accuracy of the network on the  test images: 62.963 %
+
+
+[[15  5]
+ [ 5  2]]
+
+
+SEN 28.57, SPE 75.00, ACC 62.96, F1 28.57, AUC 0.5179
+
+----------
+Train Epoch 57/99
+Accuracy of the network on the  test images: 100.000 %
+
+
+[[53  0]
+ [ 0 33]]
+
+
+SEN 100.00, SPE 100.00, ACC 100.00, F1 100.00, AUC 1.0000
+
+Accuracy of the network on the  test images: 63.158 %
+
+
+[[20  3]
+ [11  4]]
+
+
+SEN 26.67, SPE 86.96, ACC 63.16, F1 36.36, AUC 0.6377
+
+Accuracy of the network on the  test images: 62.963 %
+
+
+[[15  5]
+ [ 5  2]]
+
+
+SEN 28.57, SPE 75.00, ACC 62.96, F1 28.57, AUC 0.5179
+
+----------
+Train Epoch 58/99
+Accuracy of the network on the  test images: 100.000 %
+
+
+[[53  0]
+ [ 0 33]]
+
+
+SEN 100.00, SPE 100.00, ACC 100.00, F1 100.00, AUC 1.0000
+
+Accuracy of the network on the  test images: 63.158 %
+
+
+[[20  3]
+ [11  4]]
+
+
+SEN 26.67, SPE 86.96, ACC 63.16, F1 36.36, AUC 0.6377
+
+Accuracy of the network on the  test images: 62.963 %
+
+
+[[15  5]
+ [ 5  2]]
+
+
+SEN 28.57, SPE 75.00, ACC 62.96, F1 28.57, AUC 0.5179
+
+----------
+Train Epoch 59/99
+Accuracy of the network on the  test images: 100.000 %
+
+
+[[53  0]
+ [ 0 33]]
+
+
+SEN 100.00, SPE 100.00, ACC 100.00, F1 100.00, AUC 1.0000
+
+Accuracy of the network on the  test images: 63.158 %
+
+
+[[20  3]
+ [11  4]]
+
+
+SEN 26.67, SPE 86.96, ACC 63.16, F1 36.36, AUC 0.6377
+
+Accuracy of the network on the  test images: 62.963 %
+
+
+[[15  5]
+ [ 5  2]]
+
+
+SEN 28.57, SPE 75.00, ACC 62.96, F1 28.57, AUC 0.5179
+
+----------
+Train Epoch 60/99
+Accuracy of the network on the  test images: 100.000 %
+
+
+[[53  0]
+ [ 0 33]]
+
+
+SEN 100.00, SPE 100.00, ACC 100.00, F1 100.00, AUC 1.0000
+
+Accuracy of the network on the  test images: 63.158 %
+
+
+[[20  3]
+ [11  4]]
+
+
+SEN 26.67, SPE 86.96, ACC 63.16, F1 36.36, AUC 0.6377
+
+Accuracy of the network on the  test images: 62.963 %
+
+
+[[15  5]
+ [ 5  2]]
+
+
+SEN 28.57, SPE 75.00, ACC 62.96, F1 28.57, AUC 0.5179
+
+----------
+Train Epoch 61/99
+Accuracy of the network on the  test images: 100.000 %
+
+
+[[53  0]
+ [ 0 33]]
+
+
+SEN 100.00, SPE 100.00, ACC 100.00, F1 100.00, AUC 1.0000
+
+Accuracy of the network on the  test images: 63.158 %
+
+
+[[20  3]
+ [11  4]]
+
+
+SEN 26.67, SPE 86.96, ACC 63.16, F1 36.36, AUC 0.6377
+
+Accuracy of the network on the  test images: 62.963 %
+
+
+[[15  5]
+ [ 5  2]]
+
+
+SEN 28.57, SPE 75.00, ACC 62.96, F1 28.57, AUC 0.5179
+
+----------
+Train Epoch 62/99
+Accuracy of the network on the  test images: 100.000 %
+
+
+[[53  0]
+ [ 0 33]]
+
+
+SEN 100.00, SPE 100.00, ACC 100.00, F1 100.00, AUC 1.0000
+
+Accuracy of the network on the  test images: 63.158 %
+
+
+[[20  3]
+ [11  4]]
+
+
+SEN 26.67, SPE 86.96, ACC 63.16, F1 36.36, AUC 0.6377
+
+Accuracy of the network on the  test images: 62.963 %
+
+
+[[15  5]
+ [ 5  2]]
+
+
+SEN 28.57, SPE 75.00, ACC 62.96, F1 28.57, AUC 0.5179
+
+----------
+Train Epoch 63/99
+Accuracy of the network on the  test images: 100.000 %
+
+
+[[53  0]
+ [ 0 33]]
+
+
+SEN 100.00, SPE 100.00, ACC 100.00, F1 100.00, AUC 1.0000
+
+Accuracy of the network on the  test images: 63.158 %
+
+
+[[20  3]
+ [11  4]]
+
+
+SEN 26.67, SPE 86.96, ACC 63.16, F1 36.36, AUC 0.6377
+
+Accuracy of the network on the  test images: 62.963 %
+
+
+[[15  5]
+ [ 5  2]]
+
+
+SEN 28.57, SPE 75.00, ACC 62.96, F1 28.57, AUC 0.5179
+
+----------
+Train Epoch 64/99
+Accuracy of the network on the  test images: 100.000 %
+
+
+[[53  0]
+ [ 0 33]]
+
+
+SEN 100.00, SPE 100.00, ACC 100.00, F1 100.00, AUC 1.0000
+
+Accuracy of the network on the  test images: 63.158 %
+
+
+[[20  3]
+ [11  4]]
+
+
+SEN 26.67, SPE 86.96, ACC 63.16, F1 36.36, AUC 0.6377
+
+Accuracy of the network on the  test images: 62.963 %
+
+
+[[15  5]
+ [ 5  2]]
+
+
+SEN 28.57, SPE 75.00, ACC 62.96, F1 28.57, AUC 0.5179
+
+----------
+Train Epoch 65/99
+Accuracy of the network on the  test images: 98.837 %
+
+
+[[53  0]
+ [ 1 32]]
+
+
+SEN 96.97, SPE 100.00, ACC 98.84, F1 98.46, AUC 1.0000
+
+Accuracy of the network on the  test images: 60.526 %
+
+
+[[20  3]
+ [12  3]]
+
+
+SEN 20.00, SPE 86.96, ACC 60.53, F1 28.57, AUC 0.5783
+
+Accuracy of the network on the  test images: 59.259 %
+
+
+[[15  5]
+ [ 6  1]]
+
+
+SEN 14.29, SPE 75.00, ACC 59.26, F1 15.38, AUC 0.5000
+
+----------
+Train Epoch 66/99
+Accuracy of the network on the  test images: 98.837 %
+
+
+[[52  1]
+ [ 0 33]]
+
+
+SEN 100.00, SPE 98.11, ACC 98.84, F1 98.51, AUC 0.9906
+
+Accuracy of the network on the  test images: 65.789 %
+
+
+[[18  5]
+ [ 8  7]]
+
+
+SEN 46.67, SPE 78.26, ACC 65.79, F1 51.85, AUC 0.6203
+
+Accuracy of the network on the  test images: 59.259 %
+
+
+[[14  6]
+ [ 5  2]]
+
+
+SEN 28.57, SPE 70.00, ACC 59.26, F1 26.67, AUC 0.4286
+
+----------
+Train Epoch 67/99
+Accuracy of the network on the  test images: 98.837 %
+
+
+[[52  1]
+ [ 0 33]]
+
+
+SEN 100.00, SPE 98.11, ACC 98.84, F1 98.51, AUC 1.0000
+
+Accuracy of the network on the  test images: 65.789 %
+
+
+[[18  5]
+ [ 8  7]]
+
+
+SEN 46.67, SPE 78.26, ACC 65.79, F1 51.85, AUC 0.6029
+
+Accuracy of the network on the  test images: 59.259 %
+
+
+[[14  6]
+ [ 5  2]]
+
+
+SEN 28.57, SPE 70.00, ACC 59.26, F1 26.67, AUC 0.4000
+
+----------
+Train Epoch 68/99
+Accuracy of the network on the  test images: 98.837 %
+
+
+[[52  1]
+ [ 0 33]]
+
+
+SEN 100.00, SPE 98.11, ACC 98.84, F1 98.51, AUC 1.0000
+
+Accuracy of the network on the  test images: 68.421 %
+
+
+[[19  4]
+ [ 8  7]]
+
+
+SEN 46.67, SPE 82.61, ACC 68.42, F1 53.85, AUC 0.6058
+
+Accuracy of the network on the  test images: 59.259 %
+
+
+[[14  6]
+ [ 5  2]]
+
+
+SEN 28.57, SPE 70.00, ACC 59.26, F1 26.67, AUC 0.4000
+
+----------
+Train Epoch 69/99
+Accuracy of the network on the  test images: 100.000 %
+
+
+[[53  0]
+ [ 0 33]]
+
+
+SEN 100.00, SPE 100.00, ACC 100.00, F1 100.00, AUC 1.0000
+
+Accuracy of the network on the  test images: 63.158 %
+
+
+[[20  3]
+ [11  4]]
+
+
+SEN 26.67, SPE 86.96, ACC 63.16, F1 36.36, AUC 0.6029
+
+Accuracy of the network on the  test images: 62.963 %
+
+
+[[15  5]
+ [ 5  2]]
+
+
+SEN 28.57, SPE 75.00, ACC 62.96, F1 28.57, AUC 0.3929
+
+----------
+Train Epoch 70/99
+Accuracy of the network on the  test images: 100.000 %
+
+
+[[53  0]
+ [ 0 33]]
+
+
+SEN 100.00, SPE 100.00, ACC 100.00, F1 100.00, AUC 1.0000
+
+Accuracy of the network on the  test images: 65.789 %
+
+
+[[17  6]
+ [ 7  8]]
+
+
+SEN 53.33, SPE 73.91, ACC 65.79, F1 55.17, AUC 0.6029
+
+Accuracy of the network on the  test images: 59.259 %
+
+
+[[14  6]
+ [ 5  2]]
+
+
+SEN 28.57, SPE 70.00, ACC 59.26, F1 26.67, AUC 0.4000
+
+----------
+Train Epoch 71/99
+Accuracy of the network on the  test images: 100.000 %
+
+
+[[53  0]
+ [ 0 33]]
+
+
+SEN 100.00, SPE 100.00, ACC 100.00, F1 100.00, AUC 1.0000
+
+Accuracy of the network on the  test images: 65.789 %
+
+
+[[17  6]
+ [ 7  8]]
+
+
+SEN 53.33, SPE 73.91, ACC 65.79, F1 55.17, AUC 0.6029
+
+Accuracy of the network on the  test images: 59.259 %
+
+
+[[14  6]
+ [ 5  2]]
+
+
+SEN 28.57, SPE 70.00, ACC 59.26, F1 26.67, AUC 0.4000
+
+----------
+Train Epoch 72/99
+Accuracy of the network on the  test images: 100.000 %
+
+
+[[53  0]
+ [ 0 33]]
+
+
+SEN 100.00, SPE 100.00, ACC 100.00, F1 100.00, AUC 1.0000
+
+Accuracy of the network on the  test images: 65.789 %
+
+
+[[17  6]
+ [ 7  8]]
+
+
+SEN 53.33, SPE 73.91, ACC 65.79, F1 55.17, AUC 0.6029
+
+Accuracy of the network on the  test images: 59.259 %
+
+
+[[14  6]
+ [ 5  2]]
+
+
+SEN 28.57, SPE 70.00, ACC 59.26, F1 26.67, AUC 0.4000
+
+----------
+Train Epoch 73/99
+Accuracy of the network on the  test images: 100.000 %
+
+
+[[53  0]
+ [ 0 33]]
+
+
+SEN 100.00, SPE 100.00, ACC 100.00, F1 100.00, AUC 1.0000
+
+Accuracy of the network on the  test images: 65.789 %
+
+
+[[17  6]
+ [ 7  8]]
+
+
+SEN 53.33, SPE 73.91, ACC 65.79, F1 55.17, AUC 0.6029
+
+Accuracy of the network on the  test images: 59.259 %
+
+
+[[14  6]
+ [ 5  2]]
+
+
+SEN 28.57, SPE 70.00, ACC 59.26, F1 26.67, AUC 0.4000
+
+----------
+Train Epoch 74/99
+Accuracy of the network on the  test images: 100.000 %
+
+
+[[53  0]
+ [ 0 33]]
+
+
+SEN 100.00, SPE 100.00, ACC 100.00, F1 100.00, AUC 1.0000
+
+Accuracy of the network on the  test images: 65.789 %
+
+
+[[17  6]
+ [ 7  8]]
+
+
+SEN 53.33, SPE 73.91, ACC 65.79, F1 55.17, AUC 0.6029
+
+Accuracy of the network on the  test images: 59.259 %
+
+
+[[14  6]
+ [ 5  2]]
+
+
+SEN 28.57, SPE 70.00, ACC 59.26, F1 26.67, AUC 0.4000
+
+----------
+Train Epoch 75/99
+Accuracy of the network on the  test images: 100.000 %
+
+
+[[53  0]
+ [ 0 33]]
+
+
+SEN 100.00, SPE 100.00, ACC 100.00, F1 100.00, AUC 1.0000
+
+Accuracy of the network on the  test images: 65.789 %
+
+
+[[17  6]
+ [ 7  8]]
+
+
+SEN 53.33, SPE 73.91, ACC 65.79, F1 55.17, AUC 0.6029
+
+Accuracy of the network on the  test images: 59.259 %
+
+
+[[14  6]
+ [ 5  2]]
+
+
+SEN 28.57, SPE 70.00, ACC 59.26, F1 26.67, AUC 0.4000
+
+----------
+Train Epoch 76/99
+Accuracy of the network on the  test images: 100.000 %
+
+
+[[53  0]
+ [ 0 33]]
+
+
+SEN 100.00, SPE 100.00, ACC 100.00, F1 100.00, AUC 1.0000
+
+Accuracy of the network on the  test images: 65.789 %
+
+
+[[17  6]
+ [ 7  8]]
+
+
+SEN 53.33, SPE 73.91, ACC 65.79, F1 55.17, AUC 0.6029
+
+Accuracy of the network on the  test images: 59.259 %
+
+
+[[14  6]
+ [ 5  2]]
+
+
+SEN 28.57, SPE 70.00, ACC 59.26, F1 26.67, AUC 0.4000
+
+----------
+Train Epoch 77/99
+Accuracy of the network on the  test images: 100.000 %
+
+
+[[53  0]
+ [ 0 33]]
+
+
+SEN 100.00, SPE 100.00, ACC 100.00, F1 100.00, AUC 1.0000
+
+Accuracy of the network on the  test images: 65.789 %
+
+
+[[17  6]
+ [ 7  8]]
+
+
+SEN 53.33, SPE 73.91, ACC 65.79, F1 55.17, AUC 0.6029
+
+Accuracy of the network on the  test images: 59.259 %
+
+
+[[14  6]
+ [ 5  2]]
+
+
+SEN 28.57, SPE 70.00, ACC 59.26, F1 26.67, AUC 0.4000
+
+----------
+Train Epoch 78/99
+Accuracy of the network on the  test images: 100.000 %
+
+
+[[53  0]
+ [ 0 33]]
+
+
+SEN 100.00, SPE 100.00, ACC 100.00, F1 100.00, AUC 1.0000
+
+Accuracy of the network on the  test images: 65.789 %
+
+
+[[17  6]
+ [ 7  8]]
+
+
+SEN 53.33, SPE 73.91, ACC 65.79, F1 55.17, AUC 0.6029
+
+Accuracy of the network on the  test images: 59.259 %
+
+
+[[14  6]
+ [ 5  2]]
+
+
+SEN 28.57, SPE 70.00, ACC 59.26, F1 26.67, AUC 0.4000
+
+----------
+Train Epoch 79/99
+Accuracy of the network on the  test images: 100.000 %
+
+
+[[53  0]
+ [ 0 33]]
+
+
+SEN 100.00, SPE 100.00, ACC 100.00, F1 100.00, AUC 1.0000
+
+Accuracy of the network on the  test images: 65.789 %
+
+
+[[17  6]
+ [ 7  8]]
+
+
+SEN 53.33, SPE 73.91, ACC 65.79, F1 55.17, AUC 0.6029
+
+Accuracy of the network on the  test images: 59.259 %
+
+
+[[14  6]
+ [ 5  2]]
+
+
+SEN 28.57, SPE 70.00, ACC 59.26, F1 26.67, AUC 0.4000
+
+----------
+Train Epoch 80/99
+Accuracy of the network on the  test images: 100.000 %
+
+
+[[53  0]
+ [ 0 33]]
+
+
+SEN 100.00, SPE 100.00, ACC 100.00, F1 100.00, AUC 1.0000
+
+Accuracy of the network on the  test images: 65.789 %
+
+
+[[17  6]
+ [ 7  8]]
+
+
+SEN 53.33, SPE 73.91, ACC 65.79, F1 55.17, AUC 0.6029
+
+Accuracy of the network on the  test images: 59.259 %
+
+
+[[14  6]
+ [ 5  2]]
+
+
+SEN 28.57, SPE 70.00, ACC 59.26, F1 26.67, AUC 0.4000
+
+----------
+Train Epoch 81/99
+Accuracy of the network on the  test images: 100.000 %
+
+
+[[53  0]
+ [ 0 33]]
+
+
+SEN 100.00, SPE 100.00, ACC 100.00, F1 100.00, AUC 1.0000
+
+Accuracy of the network on the  test images: 65.789 %
+
+
+[[17  6]
+ [ 7  8]]
+
+
+SEN 53.33, SPE 73.91, ACC 65.79, F1 55.17, AUC 0.6029
+
+Accuracy of the network on the  test images: 59.259 %
+
+
+[[14  6]
+ [ 5  2]]
+
+
+SEN 28.57, SPE 70.00, ACC 59.26, F1 26.67, AUC 0.4000
+
+----------
+Train Epoch 82/99
+Accuracy of the network on the  test images: 100.000 %
+
+
+[[53  0]
+ [ 0 33]]
+
+
+SEN 100.00, SPE 100.00, ACC 100.00, F1 100.00, AUC 1.0000
+
+Accuracy of the network on the  test images: 65.789 %
+
+
+[[17  6]
+ [ 7  8]]
+
+
+SEN 53.33, SPE 73.91, ACC 65.79, F1 55.17, AUC 0.6029
+
+Accuracy of the network on the  test images: 59.259 %
+
+
+[[14  6]
+ [ 5  2]]
+
+
+SEN 28.57, SPE 70.00, ACC 59.26, F1 26.67, AUC 0.4000
+
+----------
+Train Epoch 83/99
+Accuracy of the network on the  test images: 100.000 %
+
+
+[[53  0]
+ [ 0 33]]
+
+
+SEN 100.00, SPE 100.00, ACC 100.00, F1 100.00, AUC 1.0000
+
+Accuracy of the network on the  test images: 65.789 %
+
+
+[[17  6]
+ [ 7  8]]
+
+
+SEN 53.33, SPE 73.91, ACC 65.79, F1 55.17, AUC 0.6029
+
+Accuracy of the network on the  test images: 59.259 %
+
+
+[[14  6]
+ [ 5  2]]
+
+
+SEN 28.57, SPE 70.00, ACC 59.26, F1 26.67, AUC 0.4000
+
+----------
+Train Epoch 84/99
+Accuracy of the network on the  test images: 100.000 %
+
+
+[[53  0]
+ [ 0 33]]
+
+
+SEN 100.00, SPE 100.00, ACC 100.00, F1 100.00, AUC 1.0000
+
+Accuracy of the network on the  test images: 65.789 %
+
+
+[[17  6]
+ [ 7  8]]
+
+
+SEN 53.33, SPE 73.91, ACC 65.79, F1 55.17, AUC 0.6029
+
+Accuracy of the network on the  test images: 59.259 %
+
+
+[[14  6]
+ [ 5  2]]
+
+
+SEN 28.57, SPE 70.00, ACC 59.26, F1 26.67, AUC 0.4000
+
+----------
+Train Epoch 85/99
+Accuracy of the network on the  test images: 100.000 %
+
+
+[[53  0]
+ [ 0 33]]
+
+
+SEN 100.00, SPE 100.00, ACC 100.00, F1 100.00, AUC 1.0000
+
+Accuracy of the network on the  test images: 65.789 %
+
+
+[[17  6]
+ [ 7  8]]
+
+
+SEN 53.33, SPE 73.91, ACC 65.79, F1 55.17, AUC 0.6029
+
+Accuracy of the network on the  test images: 59.259 %
+
+
+[[14  6]
+ [ 5  2]]
+
+
+SEN 28.57, SPE 70.00, ACC 59.26, F1 26.67, AUC 0.4000
+
+----------
+Train Epoch 86/99
+Accuracy of the network on the  test images: 100.000 %
+
+
+[[53  0]
+ [ 0 33]]
+
+
+SEN 100.00, SPE 100.00, ACC 100.00, F1 100.00, AUC 1.0000
+
+Accuracy of the network on the  test images: 65.789 %
+
+
+[[17  6]
+ [ 7  8]]
+
+
+SEN 53.33, SPE 73.91, ACC 65.79, F1 55.17, AUC 0.6029
+
+Accuracy of the network on the  test images: 59.259 %
+
+
+[[14  6]
+ [ 5  2]]
+
+
+SEN 28.57, SPE 70.00, ACC 59.26, F1 26.67, AUC 0.4000
+
+----------
+Train Epoch 87/99
+Accuracy of the network on the  test images: 100.000 %
+
+
+[[53  0]
+ [ 0 33]]
+
+
+SEN 100.00, SPE 100.00, ACC 100.00, F1 100.00, AUC 1.0000
+
+Accuracy of the network on the  test images: 65.789 %
+
+
+[[17  6]
+ [ 7  8]]
+
+
+SEN 53.33, SPE 73.91, ACC 65.79, F1 55.17, AUC 0.6029
+
+Accuracy of the network on the  test images: 59.259 %
+
+
+[[14  6]
+ [ 5  2]]
+
+
+SEN 28.57, SPE 70.00, ACC 59.26, F1 26.67, AUC 0.4000
+
+----------
+Train Epoch 88/99
+Accuracy of the network on the  test images: 100.000 %
+
+
+[[53  0]
+ [ 0 33]]
+
+
+SEN 100.00, SPE 100.00, ACC 100.00, F1 100.00, AUC 1.0000
+
+Accuracy of the network on the  test images: 65.789 %
+
+
+[[17  6]
+ [ 7  8]]
+
+
+SEN 53.33, SPE 73.91, ACC 65.79, F1 55.17, AUC 0.6029
+
+Accuracy of the network on the  test images: 59.259 %
+
+
+[[14  6]
+ [ 5  2]]
+
+
+SEN 28.57, SPE 70.00, ACC 59.26, F1 26.67, AUC 0.4000
+
+----------
+Train Epoch 89/99
+Accuracy of the network on the  test images: 100.000 %
+
+
+[[53  0]
+ [ 0 33]]
+
+
+SEN 100.00, SPE 100.00, ACC 100.00, F1 100.00, AUC 1.0000
+
+Accuracy of the network on the  test images: 65.789 %
+
+
+[[17  6]
+ [ 7  8]]
+
+
+SEN 53.33, SPE 73.91, ACC 65.79, F1 55.17, AUC 0.6029
+
+Accuracy of the network on the  test images: 59.259 %
+
+
+[[14  6]
+ [ 5  2]]
+
+
+SEN 28.57, SPE 70.00, ACC 59.26, F1 26.67, AUC 0.4000
+
+----------
+Train Epoch 90/99
+Accuracy of the network on the  test images: 100.000 %
+
+
+[[53  0]
+ [ 0 33]]
+
+
+SEN 100.00, SPE 100.00, ACC 100.00, F1 100.00, AUC 1.0000
+
+Accuracy of the network on the  test images: 65.789 %
+
+
+[[17  6]
+ [ 7  8]]
+
+
+SEN 53.33, SPE 73.91, ACC 65.79, F1 55.17, AUC 0.6029
+
+Accuracy of the network on the  test images: 59.259 %
+
+
+[[14  6]
+ [ 5  2]]
+
+
+SEN 28.57, SPE 70.00, ACC 59.26, F1 26.67, AUC 0.4000
+
+----------
+Train Epoch 91/99
+Accuracy of the network on the  test images: 100.000 %
+
+
+[[53  0]
+ [ 0 33]]
+
+
+SEN 100.00, SPE 100.00, ACC 100.00, F1 100.00, AUC 1.0000
+
+Accuracy of the network on the  test images: 65.789 %
+
+
+[[17  6]
+ [ 7  8]]
+
+
+SEN 53.33, SPE 73.91, ACC 65.79, F1 55.17, AUC 0.6029
+
+Accuracy of the network on the  test images: 59.259 %
+
+
+[[14  6]
+ [ 5  2]]
+
+
+SEN 28.57, SPE 70.00, ACC 59.26, F1 26.67, AUC 0.4000
+
+----------
+Train Epoch 92/99
+Accuracy of the network on the  test images: 100.000 %
+
+
+[[53  0]
+ [ 0 33]]
+
+
+SEN 100.00, SPE 100.00, ACC 100.00, F1 100.00, AUC 1.0000
+
+Accuracy of the network on the  test images: 65.789 %
+
+
+[[17  6]
+ [ 7  8]]
+
+
+SEN 53.33, SPE 73.91, ACC 65.79, F1 55.17, AUC 0.6029
+
+Accuracy of the network on the  test images: 59.259 %
+
+
+[[14  6]
+ [ 5  2]]
+
+
+SEN 28.57, SPE 70.00, ACC 59.26, F1 26.67, AUC 0.4000
+
+----------
+Train Epoch 93/99
+Accuracy of the network on the  test images: 100.000 %
+
+
+[[53  0]
+ [ 0 33]]
+
+
+SEN 100.00, SPE 100.00, ACC 100.00, F1 100.00, AUC 1.0000
+
+Accuracy of the network on the  test images: 65.789 %
+
+
+[[17  6]
+ [ 7  8]]
+
+
+SEN 53.33, SPE 73.91, ACC 65.79, F1 55.17, AUC 0.6029
+
+Accuracy of the network on the  test images: 59.259 %
+
+
+[[14  6]
+ [ 5  2]]
+
+
+SEN 28.57, SPE 70.00, ACC 59.26, F1 26.67, AUC 0.4000
+
+----------
+Train Epoch 94/99
+Accuracy of the network on the  test images: 100.000 %
+
+
+[[53  0]
+ [ 0 33]]
+
+
+SEN 100.00, SPE 100.00, ACC 100.00, F1 100.00, AUC 1.0000
+
+Accuracy of the network on the  test images: 65.789 %
+
+
+[[17  6]
+ [ 7  8]]
+
+
+SEN 53.33, SPE 73.91, ACC 65.79, F1 55.17, AUC 0.6029
+
+Accuracy of the network on the  test images: 59.259 %
+
+
+[[14  6]
+ [ 5  2]]
+
+
+SEN 28.57, SPE 70.00, ACC 59.26, F1 26.67, AUC 0.4000
+
+----------
+Train Epoch 95/99
+Accuracy of the network on the  test images: 100.000 %
+
+
+[[53  0]
+ [ 0 33]]
+
+
+SEN 100.00, SPE 100.00, ACC 100.00, F1 100.00, AUC 1.0000
+
+Accuracy of the network on the  test images: 65.789 %
+
+
+[[17  6]
+ [ 7  8]]
+
+
+SEN 53.33, SPE 73.91, ACC 65.79, F1 55.17, AUC 0.6029
+
+Accuracy of the network on the  test images: 59.259 %
+
+
+[[14  6]
+ [ 5  2]]
+
+
+SEN 28.57, SPE 70.00, ACC 59.26, F1 26.67, AUC 0.4000
+
+----------
+Train Epoch 96/99
+Accuracy of the network on the  test images: 100.000 %
+
+
+[[53  0]
+ [ 0 33]]
+
+
+SEN 100.00, SPE 100.00, ACC 100.00, F1 100.00, AUC 1.0000
+
+Accuracy of the network on the  test images: 65.789 %
+
+
+[[17  6]
+ [ 7  8]]
+
+
+SEN 53.33, SPE 73.91, ACC 65.79, F1 55.17, AUC 0.6029
+
+Accuracy of the network on the  test images: 59.259 %
+
+
+[[14  6]
+ [ 5  2]]
+
+
+SEN 28.57, SPE 70.00, ACC 59.26, F1 26.67, AUC 0.4000
+
+----------
+Train Epoch 97/99
+Accuracy of the network on the  test images: 100.000 %
+
+
+[[53  0]
+ [ 0 33]]
+
+
+SEN 100.00, SPE 100.00, ACC 100.00, F1 100.00, AUC 1.0000
+
+Accuracy of the network on the  test images: 65.789 %
+
+
+[[17  6]
+ [ 7  8]]
+
+
+SEN 53.33, SPE 73.91, ACC 65.79, F1 55.17, AUC 0.6029
+
+Accuracy of the network on the  test images: 59.259 %
+
+
+[[14  6]
+ [ 5  2]]
+
+
+SEN 28.57, SPE 70.00, ACC 59.26, F1 26.67, AUC 0.4000
+
+----------
+Train Epoch 98/99
+Accuracy of the network on the  test images: 100.000 %
+
+
+[[53  0]
+ [ 0 33]]
+
+
+SEN 100.00, SPE 100.00, ACC 100.00, F1 100.00, AUC 1.0000
+
+Accuracy of the network on the  test images: 65.789 %
+
+
+[[17  6]
+ [ 7  8]]
+
+
+SEN 53.33, SPE 73.91, ACC 65.79, F1 55.17, AUC 0.6029
+
+Accuracy of the network on the  test images: 59.259 %
+
+
+[[14  6]
+ [ 5  2]]
+
+
+SEN 28.57, SPE 70.00, ACC 59.26, F1 26.67, AUC 0.4000
+
+----------
+Train Epoch 99/99
+Accuracy of the network on the  test images: 100.000 %
+
+
+[[53  0]
+ [ 0 33]]
+
+
+SEN 100.00, SPE 100.00, ACC 100.00, F1 100.00, AUC 1.0000
+
+Accuracy of the network on the  test images: 65.789 %
+
+
+[[17  6]
+ [ 7  8]]
+
+
+SEN 53.33, SPE 73.91, ACC 65.79, F1 55.17, AUC 0.6029
+
+Accuracy of the network on the  test images: 59.259 %
+
+
+[[14  6]
+ [ 5  2]]
+
+
+SEN 28.57, SPE 70.00, ACC 59.26, F1 26.67, AUC 0.4000
+
+-------------------
+val best_auc: 0.6057971014492753
+val best_acc: 68.42105263157895
+val best_epoch: 68
+-------------------
+test auc: 0.4
+test acc: 59.25925925925925
+-------------------
+Namespace(Adiscription='BiomedCLIP + tabtransformer', base_lr=0.0005, batch_size=1, d_model=256, gpu='0', hidden_dim=64, init_lr=1e-07, lr_way='cos', nclass=2, num_epochs=100, num_warmup=10, reembed=1, saveName='dinov2', savePath='log/dinov2', seed=3407, tab='tabtransformer', vfm='dinov2', weight_decay=0.0005)
+union_model_w_reembed(
+  (tabular_transformer): TabTransformer(
+    (category_embed): Embedding(11, 28)
+    (norm): LayerNorm((23,), eps=1e-05, elementwise_affine=True)
+    (transformer): Transformer(
+      (layers): ModuleList(
+        (0): ModuleList(
+          (0): PreNorm(
+            (norm): LayerNorm((32,), eps=1e-05, elementwise_affine=True)
+            (fn): Attention(
+              (to_qkv): Linear(in_features=32, out_features=384, bias=False)
+              (to_out): Linear(in_features=128, out_features=32, bias=True)
+              (dropout): Dropout(p=0.1, inplace=False)
+            )
+          )
+          (1): PreNorm(
+            (norm): LayerNorm((32,), eps=1e-05, elementwise_affine=True)
+            (fn): FeedForward(
+              (net): Sequential(
+                (0): Linear(in_features=32, out_features=256, bias=True)
+                (1): GEGLU()
+                (2): Dropout(p=0.1, inplace=False)
+                (3): Linear(in_features=128, out_features=32, bias=True)
+              )
+            )
+          )
+        )
+        (1): ModuleList(
+          (0): PreNorm(
+            (norm): LayerNorm((32,), eps=1e-05, elementwise_affine=True)
+            (fn): Attention(
+              (to_qkv): Linear(in_features=32, out_features=384, bias=False)
+              (to_out): Linear(in_features=128, out_features=32, bias=True)
+              (dropout): Dropout(p=0.1, inplace=False)
+            )
+          )
+          (1): PreNorm(
+            (norm): LayerNorm((32,), eps=1e-05, elementwise_affine=True)
+            (fn): FeedForward(
+              (net): Sequential(
+                (0): Linear(in_features=32, out_features=256, bias=True)
+                (1): GEGLU()
+                (2): Dropout(p=0.1, inplace=False)
+                (3): Linear(in_features=128, out_features=32, bias=True)
+              )
+            )
+          )
+        )
+        (2): ModuleList(
+          (0): PreNorm(
+            (norm): LayerNorm((32,), eps=1e-05, elementwise_affine=True)
+            (fn): Attention(
+              (to_qkv): Linear(in_features=32, out_features=384, bias=False)
+              (to_out): Linear(in_features=128, out_features=32, bias=True)
+              (dropout): Dropout(p=0.1, inplace=False)
+            )
+          )
+          (1): PreNorm(
+            (norm): LayerNorm((32,), eps=1e-05, elementwise_affine=True)
+            (fn): FeedForward(
+              (net): Sequential(
+                (0): Linear(in_features=32, out_features=256, bias=True)
+                (1): GEGLU()
+                (2): Dropout(p=0.1, inplace=False)
+                (3): Linear(in_features=128, out_features=32, bias=True)
+              )
+            )
+          )
+        )
+        (3): ModuleList(
+          (0): PreNorm(
+            (norm): LayerNorm((32,), eps=1e-05, elementwise_affine=True)
+            (fn): Attention(
+              (to_qkv): Linear(in_features=32, out_features=384, bias=False)
+              (to_out): Linear(in_features=128, out_features=32, bias=True)
+              (dropout): Dropout(p=0.1, inplace=False)
+            )
+          )
+          (1): PreNorm(
+            (norm): LayerNorm((32,), eps=1e-05, elementwise_affine=True)
+            (fn): FeedForward(
+              (net): Sequential(
+                (0): Linear(in_features=32, out_features=256, bias=True)
+                (1): GEGLU()
+                (2): Dropout(p=0.1, inplace=False)
+                (3): Linear(in_features=128, out_features=32, bias=True)
+              )
+            )
+          )
+        )
+        (4): ModuleList(
+          (0): PreNorm(
+            (norm): LayerNorm((32,), eps=1e-05, elementwise_affine=True)
+            (fn): Attention(
+              (to_qkv): Linear(in_features=32, out_features=384, bias=False)
+              (to_out): Linear(in_features=128, out_features=32, bias=True)
+              (dropout): Dropout(p=0.1, inplace=False)
+            )
+          )
+          (1): PreNorm(
+            (norm): LayerNorm((32,), eps=1e-05, elementwise_affine=True)
+            (fn): FeedForward(
+              (net): Sequential(
+                (0): Linear(in_features=32, out_features=256, bias=True)
+                (1): GEGLU()
+                (2): Dropout(p=0.1, inplace=False)
+                (3): Linear(in_features=128, out_features=32, bias=True)
+              )
+            )
+          )
+        )
+        (5): ModuleList(
+          (0): PreNorm(
+            (norm): LayerNorm((32,), eps=1e-05, elementwise_affine=True)
+            (fn): Attention(
+              (to_qkv): Linear(in_features=32, out_features=384, bias=False)
+              (to_out): Linear(in_features=128, out_features=32, bias=True)
+              (dropout): Dropout(p=0.1, inplace=False)
+            )
+          )
+          (1): PreNorm(
+            (norm): LayerNorm((32,), eps=1e-05, elementwise_affine=True)
+            (fn): FeedForward(
+              (net): Sequential(
+                (0): Linear(in_features=32, out_features=256, bias=True)
+                (1): GEGLU()
+                (2): Dropout(p=0.1, inplace=False)
+                (3): Linear(in_features=128, out_features=32, bias=True)
+              )
+            )
+          )
+        )
+      )
+    )
+    (mlp): MLP(
+      (mlp): Sequential(
+        (0): Linear(in_features=151, out_features=604, bias=True)
+        (1): ReLU()
+        (2): Linear(in_features=604, out_features=302, bias=True)
+        (3): ReLU()
+        (4): Linear(in_features=302, out_features=256, bias=True)
+      )
+    )
+  )
+  (atten_pool): FCN(
+    (conv): Sequential(
+      (0): Conv2d(768, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (1): Conv2d(32, 16, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (2): Conv2d(16, 8, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (3): Conv2d(8, 1, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    )
+  )
+  (conv3): Sequential(
+    (0): Conv3d(768, 8, kernel_size=(4, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+    (1): MaxPool3d(kernel_size=(4, 2, 2), stride=(4, 2, 2), padding=0, dilation=1, ceil_mode=False)
+    (2): Conv3d(8, 256, kernel_size=(4, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+    (3): MaxPool3d(kernel_size=(4, 2, 2), stride=(4, 2, 2), padding=0, dilation=1, ceil_mode=False)
+  )
+  (gap): AdaptiveAvgPool3d(output_size=(1, 1, 1))
+  (classifier): Linear(in_features=512, out_features=2, bias=True)
+  (fusion): MMTM(
+    (fc_squeeze): Linear(in_features=512, out_features=1024, bias=True)
+    (fc_visual): Linear(in_features=1024, out_features=256, bias=True)
+    (fc_skeleton): Linear(in_features=1024, out_features=256, bias=True)
+    (relu): ReLU()
+    (sigmoid): Sigmoid()
+  )
+)
+Total trainable pytorch params:2.1005629999999997 MB
+Total pytorch params:2.1005629999999997 MB
+----------
+Train Epoch 0/99
+Accuracy of the network on the  test images: 47.674 %
+
+
+[[16 37]
+ [ 8 25]]
+
+
+SEN 75.76, SPE 30.19, ACC 47.67, F1 52.63, AUC 0.4854
+
+Accuracy of the network on the  test images: 36.842 %
+
+
+[[ 5 18]
+ [ 6  9]]
+
+
+SEN 60.00, SPE 21.74, ACC 36.84, F1 42.86, AUC 0.3623
+
+Accuracy of the network on the  test images: 37.037 %
+
+
+[[ 4 16]
+ [ 1  6]]
+
+
+SEN 85.71, SPE 20.00, ACC 37.04, F1 41.38, AUC 0.4500
+
+----------
+Train Epoch 1/99
+Accuracy of the network on the  test images: 47.674 %
+
+
+[[16 37]
+ [ 8 25]]
+
+
+SEN 75.76, SPE 30.19, ACC 47.67, F1 52.63, AUC 0.4837
+
+Accuracy of the network on the  test images: 36.842 %
+
+
+[[ 5 18]
+ [ 6  9]]
+
+
+SEN 60.00, SPE 21.74, ACC 36.84, F1 42.86, AUC 0.3623
+
+Accuracy of the network on the  test images: 37.037 %
+
+
+[[ 4 16]
+ [ 1  6]]
+
+
+SEN 85.71, SPE 20.00, ACC 37.04, F1 41.38, AUC 0.4500
+
+----------
+Train Epoch 2/99
+Accuracy of the network on the  test images: 47.674 %
+
+
+[[16 37]
+ [ 8 25]]
+
+
+SEN 75.76, SPE 30.19, ACC 47.67, F1 52.63, AUC 0.4771
+
+Accuracy of the network on the  test images: 36.842 %
+
+
+[[ 5 18]
+ [ 6  9]]
+
+
+SEN 60.00, SPE 21.74, ACC 36.84, F1 42.86, AUC 0.3696
+
+Accuracy of the network on the  test images: 37.037 %
+
+
+[[ 4 16]
+ [ 1  6]]
+
+
+SEN 85.71, SPE 20.00, ACC 37.04, F1 41.38, AUC 0.4500
+
+----------
+Train Epoch 3/99
+Accuracy of the network on the  test images: 48.837 %
+
+
+[[17 36]
+ [ 8 25]]
+
+
+SEN 75.76, SPE 32.08, ACC 48.84, F1 53.19, AUC 0.4766
+
+Accuracy of the network on the  test images: 36.842 %
+
+
+[[ 5 18]
+ [ 6  9]]
+
+
+SEN 60.00, SPE 21.74, ACC 36.84, F1 42.86, AUC 0.3667
+
+Accuracy of the network on the  test images: 37.037 %
+
+
+[[ 4 16]
+ [ 1  6]]
+
+
+SEN 85.71, SPE 20.00, ACC 37.04, F1 41.38, AUC 0.4536
+
+----------
+Train Epoch 4/99
+Accuracy of the network on the  test images: 48.837 %
+
+
+[[17 36]
+ [ 8 25]]
+
+
+SEN 75.76, SPE 32.08, ACC 48.84, F1 53.19, AUC 0.4771
+
+Accuracy of the network on the  test images: 36.842 %
+
+
+[[ 5 18]
+ [ 6  9]]
+
+
+SEN 60.00, SPE 21.74, ACC 36.84, F1 42.86, AUC 0.3667
+
+Accuracy of the network on the  test images: 37.037 %
+
+
+[[ 4 16]
+ [ 1  6]]
+
+
+SEN 85.71, SPE 20.00, ACC 37.04, F1 41.38, AUC 0.4500
+
+----------
+Train Epoch 5/99
+Accuracy of the network on the  test images: 47.674 %
+
+
+[[16 37]
+ [ 8 25]]
+
+
+SEN 75.76, SPE 30.19, ACC 47.67, F1 52.63, AUC 0.4746
+
+Accuracy of the network on the  test images: 36.842 %
+
+
+[[ 5 18]
+ [ 6  9]]
+
+
+SEN 60.00, SPE 21.74, ACC 36.84, F1 42.86, AUC 0.3667
+
+Accuracy of the network on the  test images: 37.037 %
+
+
+[[ 4 16]
+ [ 1  6]]
+
+
+SEN 85.71, SPE 20.00, ACC 37.04, F1 41.38, AUC 0.4536
+
+----------
+Train Epoch 6/99
+Accuracy of the network on the  test images: 48.837 %
+
+
+[[17 36]
+ [ 8 25]]
+
+
+SEN 75.76, SPE 32.08, ACC 48.84, F1 53.19, AUC 0.4766
+
+Accuracy of the network on the  test images: 36.842 %
+
+
+[[ 5 18]
+ [ 6  9]]
+
+
+SEN 60.00, SPE 21.74, ACC 36.84, F1 42.86, AUC 0.3667
+
+Accuracy of the network on the  test images: 37.037 %
+
+
+[[ 4 16]
+ [ 1  6]]
+
+
+SEN 85.71, SPE 20.00, ACC 37.04, F1 41.38, AUC 0.4536
+
+----------
+Train Epoch 7/99
+Accuracy of the network on the  test images: 48.837 %
+
+
+[[17 36]
+ [ 8 25]]
+
+
+SEN 75.76, SPE 32.08, ACC 48.84, F1 53.19, AUC 0.4763
+
+Accuracy of the network on the  test images: 36.842 %
+
+
+[[ 5 18]
+ [ 6  9]]
+
+
+SEN 60.00, SPE 21.74, ACC 36.84, F1 42.86, AUC 0.3667
+
+Accuracy of the network on the  test images: 37.037 %
+
+
+[[ 4 16]
+ [ 1  6]]
+
+
+SEN 85.71, SPE 20.00, ACC 37.04, F1 41.38, AUC 0.4536
+
+----------
+Train Epoch 8/99
+Accuracy of the network on the  test images: 48.837 %
+
+
+[[17 36]
+ [ 8 25]]
+
+
+SEN 75.76, SPE 32.08, ACC 48.84, F1 53.19, AUC 0.4760
+
+Accuracy of the network on the  test images: 36.842 %
+
+
+[[ 5 18]
+ [ 6  9]]
+
+
+SEN 60.00, SPE 21.74, ACC 36.84, F1 42.86, AUC 0.3667
+
+Accuracy of the network on the  test images: 37.037 %
+
+
+[[ 4 16]
+ [ 1  6]]
+
+
+SEN 85.71, SPE 20.00, ACC 37.04, F1 41.38, AUC 0.4536
+
+----------
+Train Epoch 9/99
+Accuracy of the network on the  test images: 48.837 %
+
+
+[[17 36]
+ [ 8 25]]
+
+
+SEN 75.76, SPE 32.08, ACC 48.84, F1 53.19, AUC 0.4763
+
+Accuracy of the network on the  test images: 36.842 %
+
+
+[[ 5 18]
+ [ 6  9]]
+
+
+SEN 60.00, SPE 21.74, ACC 36.84, F1 42.86, AUC 0.3667
+
+Accuracy of the network on the  test images: 37.037 %
+
+
+[[ 4 16]
+ [ 1  6]]
+
+
+SEN 85.71, SPE 20.00, ACC 37.04, F1 41.38, AUC 0.4536
+
+----------
+Train Epoch 10/99
+Accuracy of the network on the  test images: 48.837 %
+
+
+[[17 36]
+ [ 8 25]]
+
+
+SEN 75.76, SPE 32.08, ACC 48.84, F1 53.19, AUC 0.4763
+
+Accuracy of the network on the  test images: 36.842 %
+
+
+[[ 5 18]
+ [ 6  9]]
+
+
+SEN 60.00, SPE 21.74, ACC 36.84, F1 42.86, AUC 0.3667
+
+Accuracy of the network on the  test images: 37.037 %
+
+
+[[ 4 16]
+ [ 1  6]]
+
+
+SEN 85.71, SPE 20.00, ACC 37.04, F1 41.38, AUC 0.4536
+
+----------
+Train Epoch 11/99
+Accuracy of the network on the  test images: 48.837 %
+
+
+[[17 36]
+ [ 8 25]]
+
+
+SEN 75.76, SPE 32.08, ACC 48.84, F1 53.19, AUC 0.4768
+
+Accuracy of the network on the  test images: 36.842 %
+
+
+[[ 5 18]
+ [ 6  9]]
+
+
+SEN 60.00, SPE 21.74, ACC 36.84, F1 42.86, AUC 0.3667
+
+Accuracy of the network on the  test images: 37.037 %
+
+
+[[ 4 16]
+ [ 1  6]]
+
+
+SEN 85.71, SPE 20.00, ACC 37.04, F1 41.38, AUC 0.4536
+
+----------
+Train Epoch 12/99
+Accuracy of the network on the  test images: 47.674 %
+
+
+[[16 37]
+ [ 8 25]]
+
+
+SEN 75.76, SPE 30.19, ACC 47.67, F1 52.63, AUC 0.4757
+
+Accuracy of the network on the  test images: 36.842 %
+
+
+[[ 5 18]
+ [ 6  9]]
+
+
+SEN 60.00, SPE 21.74, ACC 36.84, F1 42.86, AUC 0.3667
+
+Accuracy of the network on the  test images: 37.037 %
+
+
+[[ 4 16]
+ [ 1  6]]
+
+
+SEN 85.71, SPE 20.00, ACC 37.04, F1 41.38, AUC 0.4536
+
+----------
+Train Epoch 13/99
+Accuracy of the network on the  test images: 48.837 %
+
+
+[[17 36]
+ [ 8 25]]
+
+
+SEN 75.76, SPE 32.08, ACC 48.84, F1 53.19, AUC 0.4763
+
+Accuracy of the network on the  test images: 36.842 %
+
+
+[[ 5 18]
+ [ 6  9]]
+
+
+SEN 60.00, SPE 21.74, ACC 36.84, F1 42.86, AUC 0.3667
+
+Accuracy of the network on the  test images: 37.037 %
+
+
+[[ 4 16]
+ [ 1  6]]
+
+
+SEN 85.71, SPE 20.00, ACC 37.04, F1 41.38, AUC 0.4536
+
+----------
+Train Epoch 14/99
+Accuracy of the network on the  test images: 48.837 %
+
+
+[[17 36]
+ [ 8 25]]
+
+
+SEN 75.76, SPE 32.08, ACC 48.84, F1 53.19, AUC 0.4763
+
+Accuracy of the network on the  test images: 36.842 %
+
+
+[[ 5 18]
+ [ 6  9]]
+
+
+SEN 60.00, SPE 21.74, ACC 36.84, F1 42.86, AUC 0.3667
+
+Accuracy of the network on the  test images: 37.037 %
+
+
+[[ 4 16]
+ [ 1  6]]
+
+
+SEN 85.71, SPE 20.00, ACC 37.04, F1 41.38, AUC 0.4536
+
+----------
+Train Epoch 15/99
+Accuracy of the network on the  test images: 48.837 %
+
+
+[[17 36]
+ [ 8 25]]
+
+
+SEN 75.76, SPE 32.08, ACC 48.84, F1 53.19, AUC 0.4774
+
+Accuracy of the network on the  test images: 36.842 %
+
+
+[[ 5 18]
+ [ 6  9]]
+
+
+SEN 60.00, SPE 21.74, ACC 36.84, F1 42.86, AUC 0.3667
+
+Accuracy of the network on the  test images: 37.037 %
+
+
+[[ 4 16]
+ [ 1  6]]
+
+
+SEN 85.71, SPE 20.00, ACC 37.04, F1 41.38, AUC 0.4429
+
+----------
+Train Epoch 16/99
+Accuracy of the network on the  test images: 48.837 %
+
+
+[[17 36]
+ [ 8 25]]
+
+
+SEN 75.76, SPE 32.08, ACC 48.84, F1 53.19, AUC 0.4763
+
+Accuracy of the network on the  test images: 36.842 %
+
+
+[[ 5 18]
+ [ 6  9]]
+
+
+SEN 60.00, SPE 21.74, ACC 36.84, F1 42.86, AUC 0.3667
+
+Accuracy of the network on the  test images: 37.037 %
+
+
+[[ 4 16]
+ [ 1  6]]
+
+
+SEN 85.71, SPE 20.00, ACC 37.04, F1 41.38, AUC 0.4536
+
+----------
+Train Epoch 17/99
+Accuracy of the network on the  test images: 48.837 %
+
+
+[[17 36]
+ [ 8 25]]
+
+
+SEN 75.76, SPE 32.08, ACC 48.84, F1 53.19, AUC 0.4766
+
+Accuracy of the network on the  test images: 36.842 %
+
+
+[[ 5 18]
+ [ 6  9]]
+
+
+SEN 60.00, SPE 21.74, ACC 36.84, F1 42.86, AUC 0.3667
+
+Accuracy of the network on the  test images: 37.037 %
+
+
+[[ 4 16]
+ [ 1  6]]
+
+
+SEN 85.71, SPE 20.00, ACC 37.04, F1 41.38, AUC 0.4536
+
+----------
+Train Epoch 18/99
+Accuracy of the network on the  test images: 48.837 %
+
+
+[[17 36]
+ [ 8 25]]
+
+
+SEN 75.76, SPE 32.08, ACC 48.84, F1 53.19, AUC 0.4763
+
+Accuracy of the network on the  test images: 36.842 %
+
+
+[[ 5 18]
+ [ 6  9]]
+
+
+SEN 60.00, SPE 21.74, ACC 36.84, F1 42.86, AUC 0.3667
+
+Accuracy of the network on the  test images: 37.037 %
+
+
+[[ 4 16]
+ [ 1  6]]
+
+
+SEN 85.71, SPE 20.00, ACC 37.04, F1 41.38, AUC 0.4536
+
+----------
+Train Epoch 19/99
+Accuracy of the network on the  test images: 47.674 %
+
+
+[[16 37]
+ [ 8 25]]
+
+
+SEN 75.76, SPE 30.19, ACC 47.67, F1 52.63, AUC 0.4768
+
+Accuracy of the network on the  test images: 36.842 %
+
+
+[[ 5 18]
+ [ 6  9]]
+
+
+SEN 60.00, SPE 21.74, ACC 36.84, F1 42.86, AUC 0.3667
+
+Accuracy of the network on the  test images: 37.037 %
+
+
+[[ 4 16]
+ [ 1  6]]
+
+
+SEN 85.71, SPE 20.00, ACC 37.04, F1 41.38, AUC 0.4536
+
+----------
+Train Epoch 20/99
+Accuracy of the network on the  test images: 48.837 %
+
+
+[[17 36]
+ [ 8 25]]
+
+
+SEN 75.76, SPE 32.08, ACC 48.84, F1 53.19, AUC 0.4768
+
+Accuracy of the network on the  test images: 36.842 %
+
+
+[[ 5 18]
+ [ 6  9]]
+
+
+SEN 60.00, SPE 21.74, ACC 36.84, F1 42.86, AUC 0.3667
+
+Accuracy of the network on the  test images: 37.037 %
+
+
+[[ 4 16]
+ [ 1  6]]
+
+
+SEN 85.71, SPE 20.00, ACC 37.04, F1 41.38, AUC 0.4536
+
+----------
+Train Epoch 21/99
+Accuracy of the network on the  test images: 48.837 %
+
+
+[[17 36]
+ [ 8 25]]
+
+
+SEN 75.76, SPE 32.08, ACC 48.84, F1 53.19, AUC 0.4763
+
+Accuracy of the network on the  test images: 36.842 %
+
+
+[[ 5 18]
+ [ 6  9]]
+
+
+SEN 60.00, SPE 21.74, ACC 36.84, F1 42.86, AUC 0.3667
+
+Accuracy of the network on the  test images: 37.037 %
+
+
+[[ 4 16]
+ [ 1  6]]
+
+
+SEN 85.71, SPE 20.00, ACC 37.04, F1 41.38, AUC 0.4536
+
+----------
+Train Epoch 22/99
+Accuracy of the network on the  test images: 48.837 %
+
+
+[[17 36]
+ [ 8 25]]
+
+
+SEN 75.76, SPE 32.08, ACC 48.84, F1 53.19, AUC 0.4763
+
+Accuracy of the network on the  test images: 36.842 %
+
+
+[[ 5 18]
+ [ 6  9]]
+
+
+SEN 60.00, SPE 21.74, ACC 36.84, F1 42.86, AUC 0.3667
+
+Accuracy of the network on the  test images: 37.037 %
+
+
+[[ 4 16]
+ [ 1  6]]
+
+
+SEN 85.71, SPE 20.00, ACC 37.04, F1 41.38, AUC 0.4536
+
+----------
+Train Epoch 23/99
+Accuracy of the network on the  test images: 48.837 %
+
+
+[[17 36]
+ [ 8 25]]
+
+
+SEN 75.76, SPE 32.08, ACC 48.84, F1 53.19, AUC 0.4763
+
+Accuracy of the network on the  test images: 36.842 %
+
+
+[[ 5 18]
+ [ 6  9]]
+
+
+SEN 60.00, SPE 21.74, ACC 36.84, F1 42.86, AUC 0.3667
+
+Accuracy of the network on the  test images: 37.037 %
+
+
+[[ 4 16]
+ [ 1  6]]
+
+
+SEN 85.71, SPE 20.00, ACC 37.04, F1 41.38, AUC 0.4536
+
+----------
+Train Epoch 24/99
+Accuracy of the network on the  test images: 48.837 %
+
+
+[[17 36]
+ [ 8 25]]
+
+
+SEN 75.76, SPE 32.08, ACC 48.84, F1 53.19, AUC 0.4763
+
+Accuracy of the network on the  test images: 36.842 %
+
+
+[[ 5 18]
+ [ 6  9]]
+
+
+SEN 60.00, SPE 21.74, ACC 36.84, F1 42.86, AUC 0.3667
+
+Accuracy of the network on the  test images: 37.037 %
+
+
+[[ 4 16]
+ [ 1  6]]
+
+
+SEN 85.71, SPE 20.00, ACC 37.04, F1 41.38, AUC 0.4536
+
+----------
+Train Epoch 25/99
+Accuracy of the network on the  test images: 48.837 %
+
+
+[[17 36]
+ [ 8 25]]
+
+
+SEN 75.76, SPE 32.08, ACC 48.84, F1 53.19, AUC 0.4763
+
+Accuracy of the network on the  test images: 36.842 %
+
+
+[[ 5 18]
+ [ 6  9]]
+
+
+SEN 60.00, SPE 21.74, ACC 36.84, F1 42.86, AUC 0.3667
+
+Accuracy of the network on the  test images: 37.037 %
+
+
+[[ 4 16]
+ [ 1  6]]
+
+
+SEN 85.71, SPE 20.00, ACC 37.04, F1 41.38, AUC 0.4536
+
+----------
+Train Epoch 26/99
+Accuracy of the network on the  test images: 47.674 %
+
+
+[[16 37]
+ [ 8 25]]
+
+
+SEN 75.76, SPE 30.19, ACC 47.67, F1 52.63, AUC 0.4768
+
+Accuracy of the network on the  test images: 36.842 %
+
+
+[[ 5 18]
+ [ 6  9]]
+
+
+SEN 60.00, SPE 21.74, ACC 36.84, F1 42.86, AUC 0.3667
+
+Accuracy of the network on the  test images: 37.037 %
+
+
+[[ 4 16]
+ [ 1  6]]
+
+
+SEN 85.71, SPE 20.00, ACC 37.04, F1 41.38, AUC 0.4536
+
+----------
+Train Epoch 27/99
+Accuracy of the network on the  test images: 48.837 %
+
+
+[[17 36]
+ [ 8 25]]
+
+
+SEN 75.76, SPE 32.08, ACC 48.84, F1 53.19, AUC 0.4763
+
+Accuracy of the network on the  test images: 36.842 %
+
+
+[[ 5 18]
+ [ 6  9]]
+
+
+SEN 60.00, SPE 21.74, ACC 36.84, F1 42.86, AUC 0.3667
+
+Accuracy of the network on the  test images: 37.037 %
+
+
+[[ 4 16]
+ [ 1  6]]
+
+
+SEN 85.71, SPE 20.00, ACC 37.04, F1 41.38, AUC 0.4536
+
+----------
+Train Epoch 28/99
+Accuracy of the network on the  test images: 48.837 %
+
+
+[[17 36]
+ [ 8 25]]
+
+
+SEN 75.76, SPE 32.08, ACC 48.84, F1 53.19, AUC 0.4760
+
+Accuracy of the network on the  test images: 36.842 %
+
+
+[[ 5 18]
+ [ 6  9]]
+
+
+SEN 60.00, SPE 21.74, ACC 36.84, F1 42.86, AUC 0.3667
+
+Accuracy of the network on the  test images: 37.037 %
+
+
+[[ 4 16]
+ [ 1  6]]
+
+
+SEN 85.71, SPE 20.00, ACC 37.04, F1 41.38, AUC 0.4536
+
+----------
+Train Epoch 29/99
+Accuracy of the network on the  test images: 48.837 %
+
+
+[[17 36]
+ [ 8 25]]
+
+
+SEN 75.76, SPE 32.08, ACC 48.84, F1 53.19, AUC 0.4763
+
+Accuracy of the network on the  test images: 36.842 %
+
+
+[[ 5 18]
+ [ 6  9]]
+
+
+SEN 60.00, SPE 21.74, ACC 36.84, F1 42.86, AUC 0.3667
+
+Accuracy of the network on the  test images: 37.037 %
+
+
+[[ 4 16]
+ [ 1  6]]
+
+
+SEN 85.71, SPE 20.00, ACC 37.04, F1 41.38, AUC 0.4536
+
+----------
+Train Epoch 30/99
+Accuracy of the network on the  test images: 61.628 %
+
+
+[[51  2]
+ [31  2]]
+
+
+SEN 6.06, SPE 96.23, ACC 61.63, F1 10.81, AUC 0.7467
+
+Accuracy of the network on the  test images: 57.895 %
+
+
+[[21  2]
+ [14  1]]
+
+
+SEN 6.67, SPE 91.30, ACC 57.89, F1 11.11, AUC 0.6696
+
+Accuracy of the network on the  test images: 74.074 %
+
+
+[[20  0]
+ [ 7  0]]
+
+
+SEN 0.00, SPE 100.00, ACC 74.07, F1 0.00, AUC 0.6714
+
+----------
+Train Epoch 31/99
+Accuracy of the network on the  test images: 70.930 %
+
+
+[[50  3]
+ [22 11]]
+
+
+SEN 33.33, SPE 94.34, ACC 70.93, F1 46.81, AUC 0.8245
+
+Accuracy of the network on the  test images: 63.158 %
+
+
+[[21  2]
+ [12  3]]
+
+
+SEN 20.00, SPE 91.30, ACC 63.16, F1 30.00, AUC 0.7449
+
+Accuracy of the network on the  test images: 70.370 %
+
+
+[[19  1]
+ [ 7  0]]
+
+
+SEN 0.00, SPE 95.00, ACC 70.37, F1 0.00, AUC 0.6714
+
+----------
+Train Epoch 32/99
+Accuracy of the network on the  test images: 72.093 %
+
+
+[[45  8]
+ [16 17]]
+
+
+SEN 51.52, SPE 84.91, ACC 72.09, F1 58.62, AUC 0.8588
+
+Accuracy of the network on the  test images: 68.421 %
+
+
+[[18  5]
+ [ 7  8]]
+
+
+SEN 53.33, SPE 78.26, ACC 68.42, F1 57.14, AUC 0.8145
+
+Accuracy of the network on the  test images: 81.481 %
+
+
+[[17  3]
+ [ 2  5]]
+
+
+SEN 71.43, SPE 85.00, ACC 81.48, F1 66.67, AUC 0.8071
+
+----------
+Train Epoch 33/99
+Accuracy of the network on the  test images: 89.535 %
+
+
+[[49  4]
+ [ 5 28]]
+
+
+SEN 84.85, SPE 92.45, ACC 89.53, F1 86.15, AUC 0.9314
+
+Accuracy of the network on the  test images: 78.947 %
+
+
+[[18  5]
+ [ 3 12]]
+
+
+SEN 80.00, SPE 78.26, ACC 78.95, F1 75.00, AUC 0.8638
+
+Accuracy of the network on the  test images: 74.074 %
+
+
+[[14  6]
+ [ 1  6]]
+
+
+SEN 85.71, SPE 70.00, ACC 74.07, F1 63.16, AUC 0.9143
+
+----------
+Train Epoch 34/99
+Accuracy of the network on the  test images: 88.372 %
+
+
+[[50  3]
+ [ 7 26]]
+
+
+SEN 78.79, SPE 94.34, ACC 88.37, F1 83.87, AUC 0.9508
+
+Accuracy of the network on the  test images: 71.053 %
+
+
+[[20  3]
+ [ 8  7]]
+
+
+SEN 46.67, SPE 86.96, ACC 71.05, F1 56.00, AUC 0.8000
+
+Accuracy of the network on the  test images: 81.481 %
+
+
+[[16  4]
+ [ 1  6]]
+
+
+SEN 85.71, SPE 80.00, ACC 81.48, F1 70.59, AUC 0.8786
+
+----------
+Train Epoch 35/99
+Accuracy of the network on the  test images: 62.791 %
+
+
+[[53  0]
+ [32  1]]
+
+
+SEN 3.03, SPE 100.00, ACC 62.79, F1 5.88, AUC 0.8473
+
+Accuracy of the network on the  test images: 60.526 %
+
+
+[[23  0]
+ [15  0]]
+
+
+SEN 0.00, SPE 100.00, ACC 60.53, F1 0.00, AUC 0.9217
+
+Accuracy of the network on the  test images: 74.074 %
+
+
+[[20  0]
+ [ 7  0]]
+
+
+SEN 0.00, SPE 100.00, ACC 74.07, F1 0.00, AUC 0.7357
+
+----------
+Train Epoch 36/99
+Accuracy of the network on the  test images: 74.419 %
+
+
+[[32 21]
+ [ 1 32]]
+
+
+SEN 96.97, SPE 60.38, ACC 74.42, F1 74.42, AUC 0.9177
+
+Accuracy of the network on the  test images: 65.789 %
+
+
+[[11 12]
+ [ 1 14]]
+
+
+SEN 93.33, SPE 47.83, ACC 65.79, F1 68.29, AUC 0.8696
+
+Accuracy of the network on the  test images: 44.444 %
+
+
+[[ 6 14]
+ [ 1  6]]
+
+
+SEN 85.71, SPE 30.00, ACC 44.44, F1 44.44, AUC 0.8357
+
+----------
+Train Epoch 37/99
+Accuracy of the network on the  test images: 87.209 %
+
+
+[[44  9]
+ [ 2 31]]
+
+
+SEN 93.94, SPE 83.02, ACC 87.21, F1 84.93, AUC 0.9743
+
+Accuracy of the network on the  test images: 81.579 %
+
+
+[[18  5]
+ [ 2 13]]
+
+
+SEN 86.67, SPE 78.26, ACC 81.58, F1 78.79, AUC 0.8754
+
+Accuracy of the network on the  test images: 70.370 %
+
+
+[[13  7]
+ [ 1  6]]
+
+
+SEN 85.71, SPE 65.00, ACC 70.37, F1 60.00, AUC 0.9143
+
+----------
+Train Epoch 38/99
+Accuracy of the network on the  test images: 87.209 %
+
+
+[[45  8]
+ [ 3 30]]
+
+
+SEN 90.91, SPE 84.91, ACC 87.21, F1 84.51, AUC 0.9720
+
+Accuracy of the network on the  test images: 78.947 %
+
+
+[[18  5]
+ [ 3 12]]
+
+
+SEN 80.00, SPE 78.26, ACC 78.95, F1 75.00, AUC 0.8580
+
+Accuracy of the network on the  test images: 62.963 %
+
+
+[[11  9]
+ [ 1  6]]
+
+
+SEN 85.71, SPE 55.00, ACC 62.96, F1 54.55, AUC 0.9214
+
+----------
+Train Epoch 39/99
+Accuracy of the network on the  test images: 91.860 %
+
+
+[[46  7]
+ [ 0 33]]
+
+
+SEN 100.00, SPE 86.79, ACC 91.86, F1 90.41, AUC 0.9920
+
+Accuracy of the network on the  test images: 76.316 %
+
+
+[[16  7]
+ [ 2 13]]
+
+
+SEN 86.67, SPE 69.57, ACC 76.32, F1 74.29, AUC 0.8551
+
+Accuracy of the network on the  test images: 70.370 %
+
+
+[[13  7]
+ [ 1  6]]
+
+
+SEN 85.71, SPE 65.00, ACC 70.37, F1 60.00, AUC 0.8714
+
+----------
+Train Epoch 40/99
+Accuracy of the network on the  test images: 91.860 %
+
+
+[[53  0]
+ [ 7 26]]
+
+
+SEN 78.79, SPE 100.00, ACC 91.86, F1 88.14, AUC 0.9943
+
+Accuracy of the network on the  test images: 84.211 %
+
+
+[[21  2]
+ [ 4 11]]
+
+
+SEN 73.33, SPE 91.30, ACC 84.21, F1 78.57, AUC 0.8667
+
+Accuracy of the network on the  test images: 77.778 %
+
+
+[[15  5]
+ [ 1  6]]
+
+
+SEN 85.71, SPE 75.00, ACC 77.78, F1 66.67, AUC 0.9071
+
+----------
+Train Epoch 41/99
+Accuracy of the network on the  test images: 90.698 %
+
+
+[[46  7]
+ [ 1 32]]
+
+
+SEN 96.97, SPE 86.79, ACC 90.70, F1 88.89, AUC 0.9863
+
+Accuracy of the network on the  test images: 71.053 %
+
+
+[[14  9]
+ [ 2 13]]
+
+
+SEN 86.67, SPE 60.87, ACC 71.05, F1 70.27, AUC 0.8957
+
+Accuracy of the network on the  test images: 59.259 %
+
+
+[[ 9 11]
+ [ 0  7]]
+
+
+SEN 100.00, SPE 45.00, ACC 59.26, F1 56.00, AUC 0.9214
+
+----------
+Train Epoch 42/99
+Accuracy of the network on the  test images: 89.535 %
+
+
+[[53  0]
+ [ 9 24]]
+
+
+SEN 72.73, SPE 100.00, ACC 89.53, F1 84.21, AUC 0.9897
+
+Accuracy of the network on the  test images: 78.947 %
+
+
+[[21  2]
+ [ 6  9]]
+
+
+SEN 60.00, SPE 91.30, ACC 78.95, F1 69.23, AUC 0.8754
+
+Accuracy of the network on the  test images: 85.185 %
+
+
+[[17  3]
+ [ 1  6]]
+
+
+SEN 85.71, SPE 85.00, ACC 85.19, F1 75.00, AUC 0.9143
+
+----------
+Train Epoch 43/99
+Accuracy of the network on the  test images: 94.186 %
+
+
+[[53  0]
+ [ 5 28]]
+
+
+SEN 84.85, SPE 100.00, ACC 94.19, F1 91.80, AUC 0.9703
+
+Accuracy of the network on the  test images: 71.053 %
+
+
+[[19  4]
+ [ 7  8]]
+
+
+SEN 53.33, SPE 82.61, ACC 71.05, F1 59.26, AUC 0.8000
+
+Accuracy of the network on the  test images: 81.481 %
+
+
+[[16  4]
+ [ 1  6]]
+
+
+SEN 85.71, SPE 80.00, ACC 81.48, F1 70.59, AUC 0.9143
+
+----------
+Train Epoch 44/99
+Accuracy of the network on the  test images: 97.674 %
+
+
+[[53  0]
+ [ 2 31]]
+
+
+SEN 93.94, SPE 100.00, ACC 97.67, F1 96.88, AUC 0.9937
+
+Accuracy of the network on the  test images: 81.579 %
+
+
+[[19  4]
+ [ 3 12]]
+
+
+SEN 80.00, SPE 82.61, ACC 81.58, F1 77.42, AUC 0.8493
+
+Accuracy of the network on the  test images: 77.778 %
+
+
+[[15  5]
+ [ 1  6]]
+
+
+SEN 85.71, SPE 75.00, ACC 77.78, F1 66.67, AUC 0.8714
+
+----------
+Train Epoch 45/99
+Accuracy of the network on the  test images: 93.023 %
+
+
+[[53  0]
+ [ 6 27]]
+
+
+SEN 81.82, SPE 100.00, ACC 93.02, F1 90.00, AUC 0.9891
+
+Accuracy of the network on the  test images: 73.684 %
+
+
+[[20  3]
+ [ 7  8]]
+
+
+SEN 53.33, SPE 86.96, ACC 73.68, F1 61.54, AUC 0.8464
+
+Accuracy of the network on the  test images: 81.481 %
+
+
+[[16  4]
+ [ 1  6]]
+
+
+SEN 85.71, SPE 80.00, ACC 81.48, F1 70.59, AUC 0.9071
+
+----------
+Train Epoch 46/99
+Accuracy of the network on the  test images: 93.023 %
+
+
+[[52  1]
+ [ 5 28]]
+
+
+SEN 84.85, SPE 98.11, ACC 93.02, F1 90.32, AUC 0.9920
+
+Accuracy of the network on the  test images: 86.842 %
+
+
+[[20  3]
+ [ 2 13]]
+
+
+SEN 86.67, SPE 86.96, ACC 86.84, F1 83.87, AUC 0.8783
+
+Accuracy of the network on the  test images: 77.778 %
+
+
+[[15  5]
+ [ 1  6]]
+
+
+SEN 85.71, SPE 75.00, ACC 77.78, F1 66.67, AUC 0.8929
+
+----------
+Train Epoch 47/99
+Accuracy of the network on the  test images: 95.349 %
+
+
+[[53  0]
+ [ 4 29]]
+
+
+SEN 87.88, SPE 100.00, ACC 95.35, F1 93.55, AUC 0.9994
+
+Accuracy of the network on the  test images: 86.842 %
+
+
+[[20  3]
+ [ 2 13]]
+
+
+SEN 86.67, SPE 86.96, ACC 86.84, F1 83.87, AUC 0.8667
+
+Accuracy of the network on the  test images: 81.481 %
+
+
+[[16  4]
+ [ 1  6]]
+
+
+SEN 85.71, SPE 80.00, ACC 81.48, F1 70.59, AUC 0.9357
+
+----------
+Train Epoch 48/99
+Accuracy of the network on the  test images: 98.837 %
+
+
+[[53  0]
+ [ 1 32]]
+
+
+SEN 96.97, SPE 100.00, ACC 98.84, F1 98.46, AUC 0.9994
+
+Accuracy of the network on the  test images: 84.211 %
+
+
+[[19  4]
+ [ 2 13]]
+
+
+SEN 86.67, SPE 82.61, ACC 84.21, F1 81.25, AUC 0.8609
+
+Accuracy of the network on the  test images: 77.778 %
+
+
+[[15  5]
+ [ 1  6]]
+
+
+SEN 85.71, SPE 75.00, ACC 77.78, F1 66.67, AUC 0.9000
+
+----------
+Train Epoch 49/99
+Accuracy of the network on the  test images: 93.023 %
+
+
+[[48  5]
+ [ 1 32]]
+
+
+SEN 96.97, SPE 90.57, ACC 93.02, F1 91.43, AUC 0.9960
+
+Accuracy of the network on the  test images: 81.579 %
+
+
+[[18  5]
+ [ 2 13]]
+
+
+SEN 86.67, SPE 78.26, ACC 81.58, F1 78.79, AUC 0.8464
+
+Accuracy of the network on the  test images: 77.778 %
+
+
+[[15  5]
+ [ 1  6]]
+
+
+SEN 85.71, SPE 75.00, ACC 77.78, F1 66.67, AUC 0.9071
+
+----------
+Train Epoch 50/99
+Accuracy of the network on the  test images: 97.674 %
+
+
+[[51  2]
+ [ 0 33]]
+
+
+SEN 100.00, SPE 96.23, ACC 97.67, F1 97.06, AUC 0.9971
+
+Accuracy of the network on the  test images: 81.579 %
+
+
+[[18  5]
+ [ 2 13]]
+
+
+SEN 86.67, SPE 78.26, ACC 81.58, F1 78.79, AUC 0.8667
+
+Accuracy of the network on the  test images: 70.370 %
+
+
+[[13  7]
+ [ 1  6]]
+
+
+SEN 85.71, SPE 65.00, ACC 70.37, F1 60.00, AUC 0.9286
+
+----------
+Train Epoch 51/99
+Accuracy of the network on the  test images: 97.674 %
+
+
+[[53  0]
+ [ 2 31]]
+
+
+SEN 93.94, SPE 100.00, ACC 97.67, F1 96.88, AUC 1.0000
+
+Accuracy of the network on the  test images: 89.474 %
+
+
+[[21  2]
+ [ 2 13]]
+
+
+SEN 86.67, SPE 91.30, ACC 89.47, F1 86.67, AUC 0.8580
+
+Accuracy of the network on the  test images: 77.778 %
+
+
+[[15  5]
+ [ 1  6]]
+
+
+SEN 85.71, SPE 75.00, ACC 77.78, F1 66.67, AUC 0.9143
+
+----------
+Train Epoch 52/99
+Accuracy of the network on the  test images: 97.674 %
+
+
+[[51  2]
+ [ 0 33]]
+
+
+SEN 100.00, SPE 96.23, ACC 97.67, F1 97.06, AUC 0.9931
+
+Accuracy of the network on the  test images: 81.579 %
+
+
+[[18  5]
+ [ 2 13]]
+
+
+SEN 86.67, SPE 78.26, ACC 81.58, F1 78.79, AUC 0.8696
+
+Accuracy of the network on the  test images: 74.074 %
+
+
+[[14  6]
+ [ 1  6]]
+
+
+SEN 85.71, SPE 70.00, ACC 74.07, F1 63.16, AUC 0.9071
+
+----------
+Train Epoch 53/99
+Accuracy of the network on the  test images: 94.186 %
+
+
+[[48  5]
+ [ 0 33]]
+
+
+SEN 100.00, SPE 90.57, ACC 94.19, F1 92.96, AUC 0.9994
+
+Accuracy of the network on the  test images: 76.316 %
+
+
+[[16  7]
+ [ 2 13]]
+
+
+SEN 86.67, SPE 69.57, ACC 76.32, F1 74.29, AUC 0.8986
+
+Accuracy of the network on the  test images: 74.074 %
+
+
+[[14  6]
+ [ 1  6]]
+
+
+SEN 85.71, SPE 70.00, ACC 74.07, F1 63.16, AUC 0.8571
+
+----------
+Train Epoch 54/99
+Accuracy of the network on the  test images: 94.186 %
+
+
+[[49  4]
+ [ 1 32]]
+
+
+SEN 96.97, SPE 92.45, ACC 94.19, F1 92.75, AUC 0.9966
+
+Accuracy of the network on the  test images: 81.579 %
+
+
+[[18  5]
+ [ 2 13]]
+
+
+SEN 86.67, SPE 78.26, ACC 81.58, F1 78.79, AUC 0.8841
+
+Accuracy of the network on the  test images: 77.778 %
+
+
+[[15  5]
+ [ 1  6]]
+
+
+SEN 85.71, SPE 75.00, ACC 77.78, F1 66.67, AUC 0.8857
+
+----------
+Train Epoch 55/99
+Accuracy of the network on the  test images: 94.186 %
+
+
+[[53  0]
+ [ 5 28]]
+
+
+SEN 84.85, SPE 100.00, ACC 94.19, F1 91.80, AUC 1.0000
+
+Accuracy of the network on the  test images: 86.842 %
+
+
+[[20  3]
+ [ 2 13]]
+
+
+SEN 86.67, SPE 86.96, ACC 86.84, F1 83.87, AUC 0.8696
+
+Accuracy of the network on the  test images: 81.481 %
+
+
+[[16  4]
+ [ 1  6]]
+
+
+SEN 85.71, SPE 80.00, ACC 81.48, F1 70.59, AUC 0.9071
+
+----------
+Train Epoch 56/99
+Accuracy of the network on the  test images: 98.837 %
+
+
+[[53  0]
+ [ 1 32]]
+
+
+SEN 96.97, SPE 100.00, ACC 98.84, F1 98.46, AUC 1.0000
+
+Accuracy of the network on the  test images: 84.211 %
+
+
+[[19  4]
+ [ 2 13]]
+
+
+SEN 86.67, SPE 82.61, ACC 84.21, F1 81.25, AUC 0.8754
+
+Accuracy of the network on the  test images: 77.778 %
+
+
+[[15  5]
+ [ 1  6]]
+
+
+SEN 85.71, SPE 75.00, ACC 77.78, F1 66.67, AUC 0.8857
+
+----------
+Train Epoch 57/99
+Accuracy of the network on the  test images: 97.674 %
+
+
+[[52  1]
+ [ 1 32]]
+
+
+SEN 96.97, SPE 98.11, ACC 97.67, F1 96.97, AUC 0.9994
+
+Accuracy of the network on the  test images: 84.211 %
+
+
+[[19  4]
+ [ 2 13]]
+
+
+SEN 86.67, SPE 82.61, ACC 84.21, F1 81.25, AUC 0.8464
+
+Accuracy of the network on the  test images: 70.370 %
+
+
+[[13  7]
+ [ 1  6]]
+
+
+SEN 85.71, SPE 65.00, ACC 70.37, F1 60.00, AUC 0.9143
+
+----------
+Train Epoch 58/99
+Accuracy of the network on the  test images: 97.674 %
+
+
+[[53  0]
+ [ 2 31]]
+
+
+SEN 93.94, SPE 100.00, ACC 97.67, F1 96.88, AUC 0.9994
+
+Accuracy of the network on the  test images: 84.211 %
+
+
+[[19  4]
+ [ 2 13]]
+
+
+SEN 86.67, SPE 82.61, ACC 84.21, F1 81.25, AUC 0.8435
+
+Accuracy of the network on the  test images: 74.074 %
+
+
+[[14  6]
+ [ 1  6]]
+
+
+SEN 85.71, SPE 70.00, ACC 74.07, F1 63.16, AUC 0.9286
+
+----------
+Train Epoch 59/99
+Accuracy of the network on the  test images: 96.512 %
+
+
+[[53  0]
+ [ 3 30]]
+
+
+SEN 90.91, SPE 100.00, ACC 96.51, F1 95.24, AUC 1.0000
+
+Accuracy of the network on the  test images: 84.211 %
+
+
+[[20  3]
+ [ 3 12]]
+
+
+SEN 80.00, SPE 86.96, ACC 84.21, F1 80.00, AUC 0.8493
+
+Accuracy of the network on the  test images: 81.481 %
+
+
+[[16  4]
+ [ 1  6]]
+
+
+SEN 85.71, SPE 80.00, ACC 81.48, F1 70.59, AUC 0.9286
+
+----------
+Train Epoch 60/99
+Accuracy of the network on the  test images: 97.674 %
+
+
+[[53  0]
+ [ 2 31]]
+
+
+SEN 93.94, SPE 100.00, ACC 97.67, F1 96.88, AUC 0.9994
+
+Accuracy of the network on the  test images: 81.579 %
+
+
+[[19  4]
+ [ 3 12]]
+
+
+SEN 80.00, SPE 82.61, ACC 81.58, F1 77.42, AUC 0.8522
+
+Accuracy of the network on the  test images: 81.481 %
+
+
+[[16  4]
+ [ 1  6]]
+
+
+SEN 85.71, SPE 80.00, ACC 81.48, F1 70.59, AUC 0.9286
+
+----------
+Train Epoch 61/99
+Accuracy of the network on the  test images: 98.837 %
+
+
+[[52  1]
+ [ 0 33]]
+
+
+SEN 100.00, SPE 98.11, ACC 98.84, F1 98.51, AUC 1.0000
+
+Accuracy of the network on the  test images: 81.579 %
+
+
+[[18  5]
+ [ 2 13]]
+
+
+SEN 86.67, SPE 78.26, ACC 81.58, F1 78.79, AUC 0.8899
+
+Accuracy of the network on the  test images: 70.370 %
+
+
+[[13  7]
+ [ 1  6]]
+
+
+SEN 85.71, SPE 65.00, ACC 70.37, F1 60.00, AUC 0.8500
+
+----------
+Train Epoch 62/99
+Accuracy of the network on the  test images: 100.000 %
+
+
+[[53  0]
+ [ 0 33]]
+
+
+SEN 100.00, SPE 100.00, ACC 100.00, F1 100.00, AUC 1.0000
+
+Accuracy of the network on the  test images: 81.579 %
+
+
+[[18  5]
+ [ 2 13]]
+
+
+SEN 86.67, SPE 78.26, ACC 81.58, F1 78.79, AUC 0.8754
+
+Accuracy of the network on the  test images: 77.778 %
+
+
+[[15  5]
+ [ 1  6]]
+
+
+SEN 85.71, SPE 75.00, ACC 77.78, F1 66.67, AUC 0.8786
+
+----------
+Train Epoch 63/99
+Accuracy of the network on the  test images: 98.837 %
+
+
+[[52  1]
+ [ 0 33]]
+
+
+SEN 100.00, SPE 98.11, ACC 98.84, F1 98.51, AUC 1.0000
+
+Accuracy of the network on the  test images: 81.579 %
+
+
+[[18  5]
+ [ 2 13]]
+
+
+SEN 86.67, SPE 78.26, ACC 81.58, F1 78.79, AUC 0.8783
+
+Accuracy of the network on the  test images: 74.074 %
+
+
+[[14  6]
+ [ 1  6]]
+
+
+SEN 85.71, SPE 70.00, ACC 74.07, F1 63.16, AUC 0.8857
+
+----------
+Train Epoch 64/99
+Accuracy of the network on the  test images: 100.000 %
+
+
+[[53  0]
+ [ 0 33]]
+
+
+SEN 100.00, SPE 100.00, ACC 100.00, F1 100.00, AUC 1.0000
+
+Accuracy of the network on the  test images: 86.842 %
+
+
+[[20  3]
+ [ 2 13]]
+
+
+SEN 86.67, SPE 86.96, ACC 86.84, F1 83.87, AUC 0.8551
+
+Accuracy of the network on the  test images: 74.074 %
+
+
+[[14  6]
+ [ 1  6]]
+
+
+SEN 85.71, SPE 70.00, ACC 74.07, F1 63.16, AUC 0.9071
+
+----------
+Train Epoch 65/99
+Accuracy of the network on the  test images: 100.000 %
+
+
+[[53  0]
+ [ 0 33]]
+
+
+SEN 100.00, SPE 100.00, ACC 100.00, F1 100.00, AUC 1.0000
+
+Accuracy of the network on the  test images: 84.211 %
+
+
+[[19  4]
+ [ 2 13]]
+
+
+SEN 86.67, SPE 82.61, ACC 84.21, F1 81.25, AUC 0.8696
+
+Accuracy of the network on the  test images: 74.074 %
+
+
+[[14  6]
+ [ 1  6]]
+
+
+SEN 85.71, SPE 70.00, ACC 74.07, F1 63.16, AUC 0.9214
+
+----------
+Train Epoch 66/99
+Accuracy of the network on the  test images: 100.000 %
+
+
+[[53  0]
+ [ 0 33]]
+
+
+SEN 100.00, SPE 100.00, ACC 100.00, F1 100.00, AUC 1.0000
+
+Accuracy of the network on the  test images: 81.579 %
+
+
+[[18  5]
+ [ 2 13]]
+
+
+SEN 86.67, SPE 78.26, ACC 81.58, F1 78.79, AUC 0.8580
+
+Accuracy of the network on the  test images: 74.074 %
+
+
+[[14  6]
+ [ 1  6]]
+
+
+SEN 85.71, SPE 70.00, ACC 74.07, F1 63.16, AUC 0.9000
+
+----------
+Train Epoch 67/99
+Accuracy of the network on the  test images: 97.674 %
+
+
+[[53  0]
+ [ 2 31]]
+
+
+SEN 93.94, SPE 100.00, ACC 97.67, F1 96.88, AUC 1.0000
+
+Accuracy of the network on the  test images: 81.579 %
+
+
+[[18  5]
+ [ 2 13]]
+
+
+SEN 86.67, SPE 78.26, ACC 81.58, F1 78.79, AUC 0.8696
+
+Accuracy of the network on the  test images: 77.778 %
+
+
+[[15  5]
+ [ 1  6]]
+
+
+SEN 85.71, SPE 75.00, ACC 77.78, F1 66.67, AUC 0.9143
+
+----------
+Train Epoch 68/99
+Accuracy of the network on the  test images: 98.837 %
+
+
+[[53  0]
+ [ 1 32]]
+
+
+SEN 96.97, SPE 100.00, ACC 98.84, F1 98.46, AUC 1.0000
+
+Accuracy of the network on the  test images: 84.211 %
+
+
+[[19  4]
+ [ 2 13]]
+
+
+SEN 86.67, SPE 82.61, ACC 84.21, F1 81.25, AUC 0.8667
+
+Accuracy of the network on the  test images: 74.074 %
+
+
+[[14  6]
+ [ 1  6]]
+
+
+SEN 85.71, SPE 70.00, ACC 74.07, F1 63.16, AUC 0.9071
+
+----------
+Train Epoch 69/99
+Accuracy of the network on the  test images: 100.000 %
+
+
+[[53  0]
+ [ 0 33]]
+
+
+SEN 100.00, SPE 100.00, ACC 100.00, F1 100.00, AUC 1.0000
+
+Accuracy of the network on the  test images: 81.579 %
+
+
+[[18  5]
+ [ 2 13]]
+
+
+SEN 86.67, SPE 78.26, ACC 81.58, F1 78.79, AUC 0.8783
+
+Accuracy of the network on the  test images: 74.074 %
+
+
+[[14  6]
+ [ 1  6]]
+
+
+SEN 85.71, SPE 70.00, ACC 74.07, F1 63.16, AUC 0.9071
+
+----------
+Train Epoch 70/99
+Accuracy of the network on the  test images: 98.837 %
+
+
+[[52  1]
+ [ 0 33]]
+
+
+SEN 100.00, SPE 98.11, ACC 98.84, F1 98.51, AUC 1.0000
+
+Accuracy of the network on the  test images: 78.947 %
+
+
+[[17  6]
+ [ 2 13]]
+
+
+SEN 86.67, SPE 73.91, ACC 78.95, F1 76.47, AUC 0.8638
+
+Accuracy of the network on the  test images: 70.370 %
+
+
+[[13  7]
+ [ 1  6]]
+
+
+SEN 85.71, SPE 65.00, ACC 70.37, F1 60.00, AUC 0.9000
+
+----------
+Train Epoch 71/99
+Accuracy of the network on the  test images: 100.000 %
+
+
+[[53  0]
+ [ 0 33]]
+
+
+SEN 100.00, SPE 100.00, ACC 100.00, F1 100.00, AUC 1.0000
+
+Accuracy of the network on the  test images: 84.211 %
+
+
+[[19  4]
+ [ 2 13]]
+
+
+SEN 86.67, SPE 82.61, ACC 84.21, F1 81.25, AUC 0.8580
+
+Accuracy of the network on the  test images: 74.074 %
+
+
+[[14  6]
+ [ 1  6]]
+
+
+SEN 85.71, SPE 70.00, ACC 74.07, F1 63.16, AUC 0.9143
+
+----------
+Train Epoch 72/99
+Accuracy of the network on the  test images: 97.674 %
+
+
+[[52  1]
+ [ 1 32]]
+
+
+SEN 96.97, SPE 98.11, ACC 97.67, F1 96.97, AUC 0.9994
+
+Accuracy of the network on the  test images: 84.211 %
+
+
+[[19  4]
+ [ 2 13]]
+
+
+SEN 86.67, SPE 82.61, ACC 84.21, F1 81.25, AUC 0.8638
+
+Accuracy of the network on the  test images: 74.074 %
+
+
+[[14  6]
+ [ 1  6]]
+
+
+SEN 85.71, SPE 70.00, ACC 74.07, F1 63.16, AUC 0.9214
+
+----------
+Train Epoch 73/99
+Accuracy of the network on the  test images: 96.512 %
+
+
+[[50  3]
+ [ 0 33]]
+
+
+SEN 100.00, SPE 94.34, ACC 96.51, F1 95.65, AUC 1.0000
+
+Accuracy of the network on the  test images: 81.579 %
+
+
+[[18  5]
+ [ 2 13]]
+
+
+SEN 86.67, SPE 78.26, ACC 81.58, F1 78.79, AUC 0.8652
+
+Accuracy of the network on the  test images: 70.370 %
+
+
+[[13  7]
+ [ 1  6]]
+
+
+SEN 85.71, SPE 65.00, ACC 70.37, F1 60.00, AUC 0.9036
+
+----------
+Train Epoch 74/99
+Accuracy of the network on the  test images: 100.000 %
+
+
+[[53  0]
+ [ 0 33]]
+
+
+SEN 100.00, SPE 100.00, ACC 100.00, F1 100.00, AUC 1.0000
+
+Accuracy of the network on the  test images: 84.211 %
+
+
+[[19  4]
+ [ 2 13]]
+
+
+SEN 86.67, SPE 82.61, ACC 84.21, F1 81.25, AUC 0.8638
+
+Accuracy of the network on the  test images: 74.074 %
+
+
+[[14  6]
+ [ 1  6]]
+
+
+SEN 85.71, SPE 70.00, ACC 74.07, F1 63.16, AUC 0.9250
+
+----------
+Train Epoch 75/99
+Accuracy of the network on the  test images: 100.000 %
+
+
+[[53  0]
+ [ 0 33]]
+
+
+SEN 100.00, SPE 100.00, ACC 100.00, F1 100.00, AUC 1.0000
+
+Accuracy of the network on the  test images: 81.579 %
+
+
+[[18  5]
+ [ 2 13]]
+
+
+SEN 86.67, SPE 78.26, ACC 81.58, F1 78.79, AUC 0.8812
+
+Accuracy of the network on the  test images: 70.370 %
+
+
+[[13  7]
+ [ 1  6]]
+
+
+SEN 85.71, SPE 65.00, ACC 70.37, F1 60.00, AUC 0.8929
+
+----------
+Train Epoch 76/99
+Accuracy of the network on the  test images: 100.000 %
+
+
+[[53  0]
+ [ 0 33]]
+
+
+SEN 100.00, SPE 100.00, ACC 100.00, F1 100.00, AUC 1.0000
+
+Accuracy of the network on the  test images: 86.842 %
+
+
+[[20  3]
+ [ 2 13]]
+
+
+SEN 86.67, SPE 86.96, ACC 86.84, F1 83.87, AUC 0.8667
+
+Accuracy of the network on the  test images: 74.074 %
+
+
+[[14  6]
+ [ 1  6]]
+
+
+SEN 85.71, SPE 70.00, ACC 74.07, F1 63.16, AUC 0.9143
+
+----------
+Train Epoch 77/99
+Accuracy of the network on the  test images: 100.000 %
+
+
+[[53  0]
+ [ 0 33]]
+
+
+SEN 100.00, SPE 100.00, ACC 100.00, F1 100.00, AUC 1.0000
+
+Accuracy of the network on the  test images: 84.211 %
+
+
+[[19  4]
+ [ 2 13]]
+
+
+SEN 86.67, SPE 82.61, ACC 84.21, F1 81.25, AUC 0.8551
+
+Accuracy of the network on the  test images: 74.074 %
+
+
+[[14  6]
+ [ 1  6]]
+
+
+SEN 85.71, SPE 70.00, ACC 74.07, F1 63.16, AUC 0.9000
+
+----------
+Train Epoch 78/99
+Accuracy of the network on the  test images: 100.000 %
+
+
+[[53  0]
+ [ 0 33]]
+
+
+SEN 100.00, SPE 100.00, ACC 100.00, F1 100.00, AUC 1.0000
+
+Accuracy of the network on the  test images: 84.211 %
+
+
+[[19  4]
+ [ 2 13]]
+
+
+SEN 86.67, SPE 82.61, ACC 84.21, F1 81.25, AUC 0.8609
+
+Accuracy of the network on the  test images: 74.074 %
+
+
+[[14  6]
+ [ 1  6]]
+
+
+SEN 85.71, SPE 70.00, ACC 74.07, F1 63.16, AUC 0.9071
+
+----------
+Train Epoch 79/99
+Accuracy of the network on the  test images: 100.000 %
+
+
+[[53  0]
+ [ 0 33]]
+
+
+SEN 100.00, SPE 100.00, ACC 100.00, F1 100.00, AUC 1.0000
+
+Accuracy of the network on the  test images: 84.211 %
+
+
+[[19  4]
+ [ 2 13]]
+
+
+SEN 86.67, SPE 82.61, ACC 84.21, F1 81.25, AUC 0.8565
+
+Accuracy of the network on the  test images: 74.074 %
+
+
+[[14  6]
+ [ 1  6]]
+
+
+SEN 85.71, SPE 70.00, ACC 74.07, F1 63.16, AUC 0.9143
+
+----------
+Train Epoch 80/99
+Accuracy of the network on the  test images: 100.000 %
+
+
+[[53  0]
+ [ 0 33]]
+
+
+SEN 100.00, SPE 100.00, ACC 100.00, F1 100.00, AUC 1.0000
+
+Accuracy of the network on the  test images: 84.211 %
+
+
+[[19  4]
+ [ 2 13]]
+
+
+SEN 86.67, SPE 82.61, ACC 84.21, F1 81.25, AUC 0.8696
+
+Accuracy of the network on the  test images: 74.074 %
+
+
+[[14  6]
+ [ 1  6]]
+
+
+SEN 85.71, SPE 70.00, ACC 74.07, F1 63.16, AUC 0.9071
+
+----------
+Train Epoch 81/99
+Accuracy of the network on the  test images: 100.000 %
+
+
+[[53  0]
+ [ 0 33]]
+
+
+SEN 100.00, SPE 100.00, ACC 100.00, F1 100.00, AUC 1.0000
+
+Accuracy of the network on the  test images: 81.579 %
+
+
+[[18  5]
+ [ 2 13]]
+
+
+SEN 86.67, SPE 78.26, ACC 81.58, F1 78.79, AUC 0.8696
+
+Accuracy of the network on the  test images: 70.370 %
+
+
+[[13  7]
+ [ 1  6]]
+
+
+SEN 85.71, SPE 65.00, ACC 70.37, F1 60.00, AUC 0.9071
+
+----------
+Train Epoch 82/99
+Accuracy of the network on the  test images: 97.674 %
+
+
+[[51  2]
+ [ 0 33]]
+
+
+SEN 100.00, SPE 96.23, ACC 97.67, F1 97.06, AUC 1.0000
+
+Accuracy of the network on the  test images: 81.579 %
+
+
+[[18  5]
+ [ 2 13]]
+
+
+SEN 86.67, SPE 78.26, ACC 81.58, F1 78.79, AUC 0.8478
+
+Accuracy of the network on the  test images: 66.667 %
+
+
+[[12  8]
+ [ 1  6]]
+
+
+SEN 85.71, SPE 60.00, ACC 66.67, F1 57.14, AUC 0.8857
+
+----------
+Train Epoch 83/99
+Accuracy of the network on the  test images: 100.000 %
+
+
+[[53  0]
+ [ 0 33]]
+
+
+SEN 100.00, SPE 100.00, ACC 100.00, F1 100.00, AUC 1.0000
+
+Accuracy of the network on the  test images: 84.211 %
+
+
+[[19  4]
+ [ 2 13]]
+
+
+SEN 86.67, SPE 82.61, ACC 84.21, F1 81.25, AUC 0.8522
+
+Accuracy of the network on the  test images: 74.074 %
+
+
+[[14  6]
+ [ 1  6]]
+
+
+SEN 85.71, SPE 70.00, ACC 74.07, F1 63.16, AUC 0.9393
+
+----------
+Train Epoch 84/99
+Accuracy of the network on the  test images: 100.000 %
+
+
+[[53  0]
+ [ 0 33]]
+
+
+SEN 100.00, SPE 100.00, ACC 100.00, F1 100.00, AUC 1.0000
+
+Accuracy of the network on the  test images: 84.211 %
+
+
+[[19  4]
+ [ 2 13]]
+
+
+SEN 86.67, SPE 82.61, ACC 84.21, F1 81.25, AUC 0.8580
+
+Accuracy of the network on the  test images: 74.074 %
+
+
+[[14  6]
+ [ 1  6]]
+
+
+SEN 85.71, SPE 70.00, ACC 74.07, F1 63.16, AUC 0.9107
+
+----------
+Train Epoch 85/99
+Accuracy of the network on the  test images: 100.000 %
+
+
+[[53  0]
+ [ 0 33]]
+
+
+SEN 100.00, SPE 100.00, ACC 100.00, F1 100.00, AUC 1.0000
+
+Accuracy of the network on the  test images: 84.211 %
+
+
+[[19  4]
+ [ 2 13]]
+
+
+SEN 86.67, SPE 82.61, ACC 84.21, F1 81.25, AUC 0.8609
+
+Accuracy of the network on the  test images: 74.074 %
+
+
+[[14  6]
+ [ 1  6]]
+
+
+SEN 85.71, SPE 70.00, ACC 74.07, F1 63.16, AUC 0.9000
+
+----------
+Train Epoch 86/99
+Accuracy of the network on the  test images: 100.000 %
+
+
+[[53  0]
+ [ 0 33]]
+
+
+SEN 100.00, SPE 100.00, ACC 100.00, F1 100.00, AUC 1.0000
+
+Accuracy of the network on the  test images: 84.211 %
+
+
+[[19  4]
+ [ 2 13]]
+
+
+SEN 86.67, SPE 82.61, ACC 84.21, F1 81.25, AUC 0.8609
+
+Accuracy of the network on the  test images: 74.074 %
+
+
+[[14  6]
+ [ 1  6]]
+
+
+SEN 85.71, SPE 70.00, ACC 74.07, F1 63.16, AUC 0.9000
+
+----------
+Train Epoch 87/99
+Accuracy of the network on the  test images: 100.000 %
+
+
+[[53  0]
+ [ 0 33]]
+
+
+SEN 100.00, SPE 100.00, ACC 100.00, F1 100.00, AUC 1.0000
+
+Accuracy of the network on the  test images: 84.211 %
+
+
+[[19  4]
+ [ 2 13]]
+
+
+SEN 86.67, SPE 82.61, ACC 84.21, F1 81.25, AUC 0.8580
+
+Accuracy of the network on the  test images: 74.074 %
+
+
+[[14  6]
+ [ 1  6]]
+
+
+SEN 85.71, SPE 70.00, ACC 74.07, F1 63.16, AUC 0.9071
+
+----------
+Train Epoch 88/99
+Accuracy of the network on the  test images: 100.000 %
+
+
+[[53  0]
+ [ 0 33]]
+
+
+SEN 100.00, SPE 100.00, ACC 100.00, F1 100.00, AUC 1.0000
+
+Accuracy of the network on the  test images: 84.211 %
+
+
+[[19  4]
+ [ 2 13]]
+
+
+SEN 86.67, SPE 82.61, ACC 84.21, F1 81.25, AUC 0.8551
+
+Accuracy of the network on the  test images: 74.074 %
+
+
+[[14  6]
+ [ 1  6]]
+
+
+SEN 85.71, SPE 70.00, ACC 74.07, F1 63.16, AUC 0.8964
+
+----------
+Train Epoch 89/99
+Accuracy of the network on the  test images: 100.000 %
+
+
+[[53  0]
+ [ 0 33]]
+
+
+SEN 100.00, SPE 100.00, ACC 100.00, F1 100.00, AUC 1.0000
+
+Accuracy of the network on the  test images: 81.579 %
+
+
+[[18  5]
+ [ 2 13]]
+
+
+SEN 86.67, SPE 78.26, ACC 81.58, F1 78.79, AUC 0.8609
+
+Accuracy of the network on the  test images: 74.074 %
+
+
+[[14  6]
+ [ 1  6]]
+
+
+SEN 85.71, SPE 70.00, ACC 74.07, F1 63.16, AUC 0.8929
+
+----------
+Train Epoch 90/99
+Accuracy of the network on the  test images: 100.000 %
+
+
+[[53  0]
+ [ 0 33]]
+
+
+SEN 100.00, SPE 100.00, ACC 100.00, F1 100.00, AUC 1.0000
+
+Accuracy of the network on the  test images: 84.211 %
+
+
+[[19  4]
+ [ 2 13]]
+
+
+SEN 86.67, SPE 82.61, ACC 84.21, F1 81.25, AUC 0.8609
+
+Accuracy of the network on the  test images: 74.074 %
+
+
+[[14  6]
+ [ 1  6]]
+
+
+SEN 85.71, SPE 70.00, ACC 74.07, F1 63.16, AUC 0.8929
+
+----------
+Train Epoch 91/99
+Accuracy of the network on the  test images: 100.000 %
+
+
+[[53  0]
+ [ 0 33]]
+
+
+SEN 100.00, SPE 100.00, ACC 100.00, F1 100.00, AUC 1.0000
+
+Accuracy of the network on the  test images: 84.211 %
+
+
+[[19  4]
+ [ 2 13]]
+
+
+SEN 86.67, SPE 82.61, ACC 84.21, F1 81.25, AUC 0.8609
+
+Accuracy of the network on the  test images: 74.074 %
+
+
+[[14  6]
+ [ 1  6]]
+
+
+SEN 85.71, SPE 70.00, ACC 74.07, F1 63.16, AUC 0.8929
+
+----------
+Train Epoch 92/99
+Accuracy of the network on the  test images: 100.000 %
+
+
+[[53  0]
+ [ 0 33]]
+
+
+SEN 100.00, SPE 100.00, ACC 100.00, F1 100.00, AUC 1.0000
+
+Accuracy of the network on the  test images: 84.211 %
+
+
+[[19  4]
+ [ 2 13]]
+
+
+SEN 86.67, SPE 82.61, ACC 84.21, F1 81.25, AUC 0.8580
+
+Accuracy of the network on the  test images: 74.074 %
+
+
+[[14  6]
+ [ 1  6]]
+
+
+SEN 85.71, SPE 70.00, ACC 74.07, F1 63.16, AUC 0.8929
+
+----------
+Train Epoch 93/99
+Accuracy of the network on the  test images: 100.000 %
+
+
+[[53  0]
+ [ 0 33]]
+
+
+SEN 100.00, SPE 100.00, ACC 100.00, F1 100.00, AUC 1.0000
+
+Accuracy of the network on the  test images: 84.211 %
+
+
+[[19  4]
+ [ 2 13]]
+
+
+SEN 86.67, SPE 82.61, ACC 84.21, F1 81.25, AUC 0.8667
+
+Accuracy of the network on the  test images: 74.074 %
+
+
+[[14  6]
+ [ 1  6]]
+
+
+SEN 85.71, SPE 70.00, ACC 74.07, F1 63.16, AUC 0.8857
+
+----------
+Train Epoch 94/99
+Accuracy of the network on the  test images: 100.000 %
+
+
+[[53  0]
+ [ 0 33]]
+
+
+SEN 100.00, SPE 100.00, ACC 100.00, F1 100.00, AUC 1.0000
+
+Accuracy of the network on the  test images: 81.579 %
+
+
+[[18  5]
+ [ 2 13]]
+
+
+SEN 86.67, SPE 78.26, ACC 81.58, F1 78.79, AUC 0.8551
+
+Accuracy of the network on the  test images: 74.074 %
+
+
+[[14  6]
+ [ 1  6]]
+
+
+SEN 85.71, SPE 70.00, ACC 74.07, F1 63.16, AUC 0.8929
+
+----------
+Train Epoch 95/99
+Accuracy of the network on the  test images: 100.000 %
+
+
+[[53  0]
+ [ 0 33]]
+
+
+SEN 100.00, SPE 100.00, ACC 100.00, F1 100.00, AUC 1.0000
+
+Accuracy of the network on the  test images: 86.842 %
+
+
+[[20  3]
+ [ 2 13]]
+
+
+SEN 86.67, SPE 86.96, ACC 86.84, F1 83.87, AUC 0.8580
+
+Accuracy of the network on the  test images: 77.778 %
+
+
+[[15  5]
+ [ 1  6]]
+
+
+SEN 85.71, SPE 75.00, ACC 77.78, F1 66.67, AUC 0.9000
+
+----------
+Train Epoch 96/99
+Accuracy of the network on the  test images: 100.000 %
+
+
+[[53  0]
+ [ 0 33]]
+
+
+SEN 100.00, SPE 100.00, ACC 100.00, F1 100.00, AUC 1.0000
+
+Accuracy of the network on the  test images: 86.842 %
+
+
+[[20  3]
+ [ 2 13]]
+
+
+SEN 86.67, SPE 86.96, ACC 86.84, F1 83.87, AUC 0.8551
+
+Accuracy of the network on the  test images: 74.074 %
+
+
+[[14  6]
+ [ 1  6]]
+
+
+SEN 85.71, SPE 70.00, ACC 74.07, F1 63.16, AUC 0.9000
+
+----------
+Train Epoch 97/99
+Accuracy of the network on the  test images: 100.000 %
+
+
+[[53  0]
+ [ 0 33]]
+
+
+SEN 100.00, SPE 100.00, ACC 100.00, F1 100.00, AUC 1.0000
+
+Accuracy of the network on the  test images: 81.579 %
+
+
+[[18  5]
+ [ 2 13]]
+
+
+SEN 86.67, SPE 78.26, ACC 81.58, F1 78.79, AUC 0.8565
+
+Accuracy of the network on the  test images: 74.074 %
+
+
+[[14  6]
+ [ 1  6]]
+
+
+SEN 85.71, SPE 70.00, ACC 74.07, F1 63.16, AUC 0.9000
+
+----------
+Train Epoch 98/99
+Accuracy of the network on the  test images: 100.000 %
+
+
+[[53  0]
+ [ 0 33]]
+
+
+SEN 100.00, SPE 100.00, ACC 100.00, F1 100.00, AUC 1.0000
+
+Accuracy of the network on the  test images: 81.579 %
+
+
+[[18  5]
+ [ 2 13]]
+
+
+SEN 86.67, SPE 78.26, ACC 81.58, F1 78.79, AUC 0.8551
+
+Accuracy of the network on the  test images: 74.074 %
+
+
+[[14  6]
+ [ 1  6]]
+
+
+SEN 85.71, SPE 70.00, ACC 74.07, F1 63.16, AUC 0.9000
+
+----------
+Train Epoch 99/99
+Accuracy of the network on the  test images: 100.000 %
+
+
+[[53  0]
+ [ 0 33]]
+
+
+SEN 100.00, SPE 100.00, ACC 100.00, F1 100.00, AUC 1.0000
+
+Accuracy of the network on the  test images: 81.579 %
+
+
+[[18  5]
+ [ 2 13]]
+
+
+SEN 86.67, SPE 78.26, ACC 81.58, F1 78.79, AUC 0.8536
+
+Accuracy of the network on the  test images: 74.074 %
+
+
+[[14  6]
+ [ 1  6]]
+
+
+SEN 85.71, SPE 70.00, ACC 74.07, F1 63.16, AUC 0.9000
+
+-------------------
+val best_auc: 0.8579710144927536
+val best_acc: 89.47368421052632
+val best_epoch: 51
+-------------------
+test auc: 0.9142857142857144
+test acc: 77.77777777777779
+-------------------

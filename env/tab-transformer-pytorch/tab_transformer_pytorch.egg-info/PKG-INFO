@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: tab-transformer-pytorch
+Version: 0.3.0
+Summary: Tab Transformer - Pytorch
+Home-page: https://github.com/lucidrains/tab-transformer-pytorch
+Author: Phil Wang
+Author-email: lucidrains@gmail.com
+License: MIT
+Keywords: artificial intelligence,transformers,attention mechanism,tabular data
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: einops>=0.3
+Requires-Dist: torch>=1.6

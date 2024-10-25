@@ -1,0 +1,12 @@
+scikit-learn
+pynrrd
+cmapy
+matplotlib
+opencv-python
+scikit_learn
+nibabel
+torchsummary
+einops
+timm
+pyparsing
+pandas
