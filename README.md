@@ -1,5 +1,5 @@
 # PTRNet
-## A Novel Multimodal Learning Method for Predicting Treatment Resistance in Lung Diseases-associated MPO-AAV
+## A Novel Multimodal Learning Method for Predicting Treatment Resistance in MPO-AAV with Lung Involvement
 
 [[`Model`](#wait)] [[`Paper`](#wait)] [[`BibTeX`](#wait)]
 
